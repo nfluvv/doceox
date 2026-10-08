@@ -12,6 +12,95 @@
     "active": "Активен"
   },
 
+  "dashboard": {
+    "title": "Дашборд",
+    "manageDecks": "Управляй своими колодами и отслеживай прогресс",
+    "startNewDeck": "Начать новую колоду",
+    "totalDecks": "Всего колод в вашем профиле",
+    "streak": "Стрик",
+    "days": "дней",
+    "reviewAgain": "Повторите снова",
+    "recentlyStudied": "Колоды, которые вы недавно изучали",
+    "studied": "Изучено:",
+    "searchPlaceholder": "Поиск колод...",
+    "decksNotFound": "Колоды не найдены",
+    "decksCount": "{count} из {total} колод",
+    "filters": {
+      "title": "Показывать",
+      "all": "Все колоды",
+      "draft": "Черновик",
+      "private": "Приватные",
+      "public": "Публичные"
+    },
+    "popular": {
+      "title": "Популярные колоды",
+      "desc": "Самые популярные колоды"
+    },
+    "saved": {
+      "title": "Избранные колоды",
+      "desc": "Колоды других пользователей, которые вы сохранили",
+      "placeholder": "Поиск по сохраненным колодам",
+      "notFound": "Ничего не найдено по запросу «{savedQuery}»",
+      "doesntExists": "Пока нет сохранённых колод"
+    }
+  },
+
+  "deckCreation": {
+    "title": "Новая колода",
+    "subtitle": "Черновик",
+
+    "editDeck": "Редактирование колоды",
+
+    "startTitle": "Создание новой колоды",
+    "startDescription": "Создайте черновик и начните добавлять карточки.",
+    "startButton": "Начать создание",
+    "starting": "Создаём черновик...",
+
+    "cardsHeading": "Добавленные карточки",
+    "cardsCountLabel": "Карточек",
+    "emptyCards": "Карточек пока нет — добавьте первую ниже",
+
+    "newCardHeading": "Новая карточка",
+    "termLabel": "Термин",
+    "termPlaceholder": "Термин",
+    "definitionLabel": "Определение",
+    "definitionPlaceholder": "Определение",
+    "addCardButton": "Добавить карточку",
+    "adding": "Добавление...",
+
+    "deckSettings": "Настройки колоды",
+    "deckSettingsDescription": "Измените название и описание колоды.",
+
+    "titleLabel": "Название колоды",
+    "titlePlaceholder": "Например: Неправильные глаголы",
+    "descriptionLabel": "Описание",
+    "descriptionPlaceholder": "Необязательное описание",
+
+    "saveButton": "Сохранить",
+    "saving": "Сохраняем...",
+    "saveSuccess": "Колода сохранена",
+
+    "publishButton": "Опубликовать колоду",
+    "publishing": "Публикация...",
+    "publishSuccess": "Колода опубликована",
+
+    "statusPrivate": "Приватная",
+    "statusPublic": "Публичная",
+
+    "cards": "Карточки",
+    "cardsDescription": "Добавьте карточки, которые будете изучать.",
+
+    "errors": {
+      "unauthorized": "Ошибка авторизации или сервера",
+      "decksLimitReached": "Вы достигли лимита колод",
+      "addCardFailed": "Не удалось добавить карточку",
+      "saveFailed": "Не удалось сохранить колоду",
+      "publishFailed": "Ошибка при публикации (возможно, колода пустая)",
+      "deleteCardFailed": "Не удалось удалить карточку",
+      "deleteLastCard": "Нельзя удалить последнюю карточку в колоде"
+    }
+  },
+
   "meta": {
     "settingsTitle": "Настройки",
     "forbiddenTitle": "Доступ запрещён",
@@ -30,7 +119,7 @@
     "adminSub": "Админ-панель",
     "subscription": "Подписка",
     "statusFree": "Free",
-    "statusPremium": "Premium · до {date}",
+    "statusPremium": "Premium",
     "premiumActivated": "Premium активирован",
     "paymentFailed": "Не удалось оплатить",
     "openInTelegram": "Откройте приложение в Telegram"
@@ -43,11 +132,6 @@
 
   "LanguageSwitcher": {
     "title": "Выберите язык"
-  },
-
-  "dashboard": {
-    "title": "Дашборд",
-    "decription": "Добро пожаловать в ваш дашборд!"
   },
 
   "forbidden": {
@@ -100,5 +184,103 @@
     "light": "Светлая",
     "system": "Системная",
     "toggle": "Изменить тему"
+  },
+
+  "deckCard": {
+    "editAria": "Редактировать колоду",
+    "deleteAria": "Удалить колоду",
+    "deleteTitle": "Удалить колоду?",
+    "deleteDescription": "Эта колода и все карточки в ней будут удалены безвозвратно.",
+    "deleteDescriptionWithTitle": "Колода «{title}» и все карточки в ней будут удалены безвозвратно.",
+    "delete": "Удалить",
+    "deleting": "Удаление...",
+    "deleteSuccess": "Колода удалена",
+    "deleteError": "Не удалось удалить колоду",
+    "statusDraft": "Черновик",
+    "statusPrivate": "Приватная",
+    "statusPublic": "Публичная",
+    "cards": "{count} карточек"
+  },
+
+  "profileDecks": {
+    "heading": "Публичные колоды",
+    "count": "{count, plural, one {# колода} few {# колоды} many {# колод} other {# колод}}",
+    "emptyTitle": "Пока нет публичных колод",
+    "emptyDescription": "Здесь появятся колоды, которые этот пользователь опубликует.",
+    "viewAll": "Посмотреть все",
+    "decksTitle": "Колоды {name}"
+  },
+
+  "study": {
+    "back": "Назад",
+    "next": "Дальше",
+    "browse": "Просмотр",
+
+    "browseDesc": "Листай карточки и переворачивай",
+    "learn": "Заучивание",
+    "learnDesc": "Пиши ответы и проверяй себя",
+    "puzzle": "Пазл",
+    "puzzleDesc": "Собирай слова по кусочкам и тренируй правописание.",
+    "match": "Соответствия",
+    "matchDesc": "Ищи пары слов на скорость. Чистый азарт и реакция.",
+    "blast": "Турбо",
+    "blastDesc": "Успей выбрать правильный вариант, пока тикает таймер.",
+    "popular": "Популярно",
+    "popularDesc": "Финальный микс-тест для полной проверки колоды.",
+
+    "assemblePlaceholder": "Собери ответ из кусочков",
+
+    "matchBatch": "Раунд {current} / {total}",
+
+    "cards": "карточек",
+    "answerPlaceholder": "Напиши определение...",
+    "check": "Проверить",
+    "correct": "Верно!",
+    "typoCorrect": "Почти! Проверь написание: {answer}",
+    "incorrect": "Неверно. Правильный ответ: {answer}",
+    "cardsLeft": "Осталось карточек: {count}",
+    "dueCount": "К повторению: {count}",
+    "showAnswer": "Показать ответ",
+    "again": "Не помню",
+    "hard": "Сложно",
+    "good": "Хорошо",
+    "easy": "Легко",
+    "nothingDueTitle": "Всё повторено!",
+    "nothingDueDescription": "На сегодня нет карточек для повторения.",
+    "reviewFinishedTitle": "Повторение завершено!",
+    "reviewFinishedDescription": "Ты повторил все карточки.",
+    "finishedTitle": "Готово!",
+    "finishedDescription": "Правильных ответов с первого раза: {correct} из {total}",
+    "restart": "Пройти ещё раз",
+    "emptyDeck": "В этой колоде пока нет карточек.",
+    "browseFinishedTitle": "Готово!",
+    "browseFinishedDescription": "Ты прошёл всю колоду.",
+    "goToLearn": "Перейти к заучиванию",
+    "reviewAgain": "Повторить ещё раз",
+    "goBack": "Назад",
+    "finish": "Завершить",
+    "review": "Повторение",
+    "due": "к повторению",
+    "reviewDueTitle": "Время повторить",
+    "reviewDueDescription": "Закрепи знания, пока они ещё свежи.",
+    "reviewDue": "Повторить {count} карточек",
+    "allReviewed": "Всё повторено",
+    "allReviewedDescription": "На данный момент нет карточек, которые нужно повторить.",
+    "deckDescription": "Продолжай учиться в удобном для тебя режиме.",
+    "deckSize": "Размер колоды",
+    "progress": "Прогресс",
+    "cardsToReview": "карточек ждут повторения",
+    "nothingToReview": "ничего не нужно повторять",
+    "studyModes": "Режим обучения",
+    "studyModesDescription": "Выбери, как хочешь работать с этой колодой.",
+    "chooseStudyMode": "Выбери режим и начинай учиться",
+    "actionsText": "Пробел — перевернуть, ← → — листать, S — озвучить"
+  },
+
+  "search": {
+    "resultsFor": "Результаты по «{query}»",
+    "emptyQuery": "Введите запрос для поиска",
+    "noResults": "Ничего не найдено",
+    "cards": "карточек"
   }
 }

@@ -12,6 +12,95 @@
     "active": "Active"
   },
 
+  "dashboard": {
+    "title": "Dashboard",
+    "manageDecks": "Manage your decks and track your progress",
+    "startNewDeck": "Start a new deck",
+    "totalDecks": "Total decks in your profile",
+    "streak": "Streak",
+    "days": "days",
+    "reviewAgain": "Review again",
+    "recentlyStudied": "Decks you recently studied",
+    "studied": "Studied:",
+    "searchPlaceholder": "Search decks...",
+    "decksNotFound": "Decks not found",
+    "decksCount": "{count} of {total} decks",
+    "filters": {
+      "title": "Visibility",
+      "all": "All decks",
+      "draft": "Draft",
+      "private": "Private",
+      "public": "Public"
+    },
+    "popular": {
+      "title": "Popular decks",
+      "desc": "Most popular decks"
+    },
+    "saved": {
+      "title": "Saved decks",
+      "desc": "Decks you saved from other users.",
+      "placeholder": "Search by saved decks",
+      "notFound": "No matches found for «{savedQuery}»",
+      "doesntExists": "There are no saved decks yet."
+    }
+  },
+
+  "deckCreation": {
+    "title": "New deck",
+    "subtitle": "Draft",
+
+    "editDeck": "Edit deck",
+
+    "startTitle": "Start a new deck",
+    "startDescription": "Create a draft and start adding cards to it.",
+    "startButton": "Start creating",
+    "starting": "Creating draft...",
+
+    "cardsHeading": "Added cards",
+    "cardsCountLabel": "Cards",
+    "emptyCards": "No cards yet — add your first one below",
+
+    "newCardHeading": "New card",
+    "termLabel": "Term",
+    "termPlaceholder": "Term",
+    "definitionLabel": "Definition",
+    "definitionPlaceholder": "Definition",
+    "addCardButton": "Add card",
+    "adding": "Adding...",
+
+    "deckSettings": "Deck settings",
+    "deckSettingsDescription": "Edit the deck title and description.",
+
+    "titleLabel": "Deck title",
+    "titlePlaceholder": "e.g. Irregular verbs",
+    "descriptionLabel": "Description",
+    "descriptionPlaceholder": "Optional description",
+
+    "saveButton": "Save",
+    "saving": "Saving...",
+    "saveSuccess": "Deck saved",
+
+    "publishButton": "Publish deck",
+    "publishing": "Publishing...",
+    "publishSuccess": "Deck published",
+
+    "statusPrivate": "Private",
+    "statusPublic": "Public",
+
+    "cards": "Cards",
+    "cardsDescription": "Add the cards you want to study.",
+
+    "errors": {
+      "unauthorized": "Authorization or server error",
+      "decksLimitReached": "You have reached your deck limit",
+      "addCardFailed": "Failed to add the card",
+      "saveFailed": "Failed to save the deck",
+      "publishFailed": "Failed to publish (the deck may be empty)",
+      "deleteCardFailed": "Failed to delete card",
+      "deleteLastCard": "You cannot remove the last card in the deck"
+    }
+  },
+
   "meta": {
     "settingsTitle": "Settings",
     "forbiddenTitle": "Access denied",
@@ -30,7 +119,7 @@
     "adminSub": "Admin Panel",
     "subscription": "Subscription",
     "statusFree": "Free",
-    "statusPremium": "Premium · until {date}",
+    "statusPremium": "Premium",
     "premiumActivated": "Premium activated",
     "paymentFailed": "Failed to process payment",
     "openInTelegram": "Open in Telegram"
@@ -43,11 +132,6 @@
 
   "LanguageSwitcher": {
     "title": "Choose Language"
-  },
-
-  "dashboard": {
-    "title": "Dashboard",
-    "decription": "Welcome to your dashboard!"
   },
 
   "roleSelect": {
@@ -104,5 +188,103 @@
     "light": "Light",
     "system": "System",
     "toggle": "Change theme"
+  },
+
+  
+  "deckCard": {
+    "editAria": "Edit deck",
+    "deleteAria": "Delete deck",
+    "deleteTitle": "Delete deck?",
+    "deleteDescription": "This deck and all its cards will be permanently deleted.",
+    "deleteDescriptionWithTitle": "Deck \"{title}\" and all its cards will be permanently deleted.",
+    "delete": "Delete",
+    "deleting": "Deleting...",
+    "deleteSuccess": "Deck deleted",
+    "deleteError": "Failed to delete the deck",
+    "statusDraft": "Draft",
+    "statusPrivate": "Private",
+    "statusPublic": "Public",
+    "cards": "{count} cards"
+  },
+
+  "profileDecks": {
+    "heading": "Public decks",
+    "count": "{count, plural, one {# deck} other {# decks}}",
+    "emptyTitle": "No public decks yet",
+    "emptyDescription": "Decks this person publishes will show up here.",
+    "viewAll": "View all decks",
+    "decksTitle": "{name}'s decks"
+  },
+
+  "study": {
+    "back": "Back",
+    "next": "Next",
+
+    "browse": "Browse",
+    "browseDesc": "Swipe and flip the cards",
+    "learn": "Learn",
+    "learnDesc": "Write your answers and test yourself",
+    "puzzle": "Puzzle",
+    "puzzleDesc": "Collect words in pieces and practice spelling.",
+    "match": "Matches",
+    "matchDesc": "Find word pairs quickly. Pure excitement and reaction.",
+    "blast": "Turbo",
+    "blastDesc": "Choose the correct option before the timer ticks.",
+    "popular": "Popular",
+    "popularDesc": "Final mixed test for complete deck verification.",
+
+    "assemblePlaceholder": "Spell the word",
+
+    "matchBatch": "Batch {current} / {total}",
+
+    "cards": "cards",
+    "answerPlaceholder": "Write the definition...",
+    "check": "Check",
+    "correct": "Correct!",
+    "typoCorrect": "Almost! Check the spelling: {answer}",
+    "incorrect": "Incorrect. The correct answer: {answer}",
+    "cardsLeft": "Cards left: {count}",
+    "dueCount": "Cards due: {count}",
+    "showAnswer": "Show answer",
+    "again": "Forgot",
+    "hard": "Hard",
+    "good": "Good",
+    "easy": "Easy",
+    "nothingDueTitle": "All caught up!",
+    "nothingDueDescription": "There are no cards due for review today.",
+    "reviewFinishedTitle": "Review complete!",
+    "reviewFinishedDescription": "You've reviewed all the cards.",
+    "finishedTitle": "Done!",
+    "finishedDescription": "Correct on first try: {correct} out of {total}",
+    "restart": "Try again",
+    "emptyDeck": "This deck has no cards yet.",
+    "browseFinishedTitle": "Done!",
+    "browseFinishedDescription": "You've gone through the whole deck.",
+    "goBack": "Go back",
+    "finish": "Finish",
+    "review": "Review",
+    "due": "due",
+    "reviewDueTitle": "Time to review",
+    "reviewDueDescription": "Reinforce what you've learned while it's still fresh.",
+    "reviewDue": "Review {count} cards",
+    "allReviewed": "All caught up",
+    "allReviewedDescription": "There are no cards waiting for review right now.",
+    "deckDescription": "Keep learning at your own pace.",
+    "deckSize": "Deck size",
+    "cardsInDeck": "cards in this deck",
+    "progress": "Progress",
+    "cardsToReview": "cards waiting for review",
+    "nothingToReview": "nothing to review",
+    "studyModes": "Study mode",
+    "studyModesDescription": "Choose how you want to work with this deck.",
+    "chooseStudyMode": "Choose a mode and start learning",
+    "actionsText": "Space — flip, ← → — navigate, S — speak"
+  },
+
+  "search": {
+    "resultsFor": "Results for \"{query}\"",
+    "emptyQuery": "Enter a search query",
+    "noResults": "No results found",
+    "cards": "cards"
   }
 }

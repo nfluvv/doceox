@@ -16,7 +16,7 @@ export function BottomNavItems({ isAuthed }: { isAuthed: boolean }) {
 
   const items = [
     { href: siteConfig.routes.home, label: t("home"), icon: Home },
-    // { href: "/admin", label: t("settings"), icon: Settings },
+    // { href: "/viral", label: "Viral", icon: User },
     { href: "/profile", label: t("profile"), icon: User },
   ] as const
 

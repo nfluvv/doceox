@@ -7,7 +7,7 @@ export async function Navigation() {
   return (
     <nav
       aria-label="Main"
-      className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/85 backdrop-blur-md"
+      className="sticky inset-x-0 bottom-0 z-40 border-t border-border bg-background/85 backdrop-blur-md"
       style={{
         paddingBottom:
           "max(env(safe-area-inset-bottom), var(--tg-safe-area-inset-bottom, 0px))",

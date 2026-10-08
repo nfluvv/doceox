@@ -22,12 +22,7 @@ export async function UserProfileView() {
 
         <div className="mt-8 flex flex-col gap-8">
           <SettingsGroup title={t("subscription")}>
-            <PremiumRow
-              premiumUntil={profile.premiumUntil?.toISOString() ?? null}
-              active={
-                !!profile.premiumUntil && profile.premiumUntil > new Date()
-              }
-            />
+            <PremiumRow isPremium={profile.isPremium} />
           </SettingsGroup>
 
           <SettingsGroup title={t("settings")}>
@@ -43,21 +38,6 @@ export async function UserProfileView() {
               />
             </SettingsGroup>
           )}
-
-          <SettingsGroup title={t("links")}>
-            <SettingsRow
-              icon={<GitHubIcon className="size-5" />}
-              label="GitHub"
-              href="https://github.com/nfluvv"
-              target="_blank"
-            />
-            <SettingsRow
-              icon={<GitHubIcon className="size-5" />}
-              label="Repository"
-              href="https://github.com/nfluvv/nxt-v2"
-              target="_blank"
-            />
-          </SettingsGroup>
         </div>
       </Container>
     </main>

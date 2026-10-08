@@ -50,7 +50,7 @@ export function PremiumRow({ isPremium }: { isPremium: boolean }) {
       }
       showChevron={!isPremium}
       onClick={isPremium ? undefined : handleClick}
-      disabled={pending || isPremium}
+      // disabled={pending || isPremium}
     />
   )
 }

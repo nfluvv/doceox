@@ -1,16 +1,71 @@
-import { Container } from "@/shared/client/ui"
-import { getTranslations } from "next-intl/server"
+import { getUserDecks } from "@/entities/deck/api/queries"
+import {
+  getRecentStudiedDecks,
+  getStreak,
+} from "@/entities/study-session/api/queries"
+import { getPopularDecks } from "@/entities/deck/api/queries"
 
-export async function DashboardView() {
-  const t = await getTranslations("dashboard")
+import { Container } from "@/shared/client/ui"
+
+import { DashboardHeader } from "@/widgets/dashboard-header"
+import { RecentStudiedDecks } from "@/widgets/recent-studied-decks"
+import { PopularDecks } from "@/widgets/popular-decks"
+import { DashboardSidebar } from "@/widgets/dishboard-sidebar/ui/DashboardSidebar"
+import { SavedDecks } from "@/widgets/saved-decks"
+import { MyDecks } from "@/widgets/my-decks"
+
+interface DashboardProps {
+  searchParams: Promise<{
+    query?: string
+    filter?: string
+    savedQuery?: string
+    savedPage?: string
+  }>
+}
+
+export async function DashboardView({ searchParams }: DashboardProps) {
+  const {
+    query = "",
+    savedQuery = "",
+    filter = "all",
+    savedPage = "1",
+  } = await searchParams
+
+  const savedPageNum = Math.max(1, Number(savedPage) || 1)
+
+  const [decks, popularDecks, recentStudied, streak] = await Promise.all([
+    getUserDecks(),
+    getPopularDecks(),
+    getRecentStudiedDecks(),
+    getStreak(),
+  ])
+
+  const currentDecksCount = decks?.length ?? 0
 
   return (
-    <main className="py-2">
-      <Container>
-        <div>
-          <h1 className="text-3xl font-black">{t("title")}</h1>
-          <p className="text-muted-foreground">{t("decription")}</p>
-        </div>
+    <main className="min-h-screen bg-background text-foreground">
+      <Container className="py-4">
+        <DashboardHeader />
+
+        <RecentStudiedDecks items={recentStudied} />
+
+        {decks?.length === 0 && <PopularDecks decks={popularDecks} />}
+
+        <section>
+          <MyDecks
+            currentDecksCount={currentDecksCount}
+            filter={filter}
+            query={query}
+            decks={decks ?? []}
+          />
+
+          <DashboardSidebar
+            streak={streak}
+            currentDecksCount={currentDecksCount}
+          />
+        </section>
+
+        <SavedDecks savedQuery={savedQuery} savedPage={savedPageNum} />
       </Container>
     </main>
   )

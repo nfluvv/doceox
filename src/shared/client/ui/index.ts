@@ -2,6 +2,10 @@ export { AuthErrorToast } from "./error-toasts"
 export { SettingsRow } from "./settings-row"
 export { Container } from "./сontainer"
 export { SettingsGroup } from "./settings-group"
+export { EmptyDeckState } from './empty-deck-state'
+export { LivesDisplay } from './lives-display'
+export { ProgressBar } from './progress-bar'
+export { TimerRing } from './timer-ring'
 export * from "./icons"
 export * from "./shadcn/button"
 export * from "./shadcn/input"
@@ -19,3 +23,4 @@ export * from "./shadcn/switch"
 export * from "./shadcn/select"
 export * from "./shadcn/table"
 export * from "./shadcn/dialog"
+export * from './combo-badge'
