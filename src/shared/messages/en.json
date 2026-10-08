@@ -1,0 +1,108 @@
+{
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "back": "Back",
+    "email": "Email",
+    "connect": "Connect",
+    "disconnect": "Disconnect",
+    "connected": "Connected",
+    "notConnected": "Not connected",
+    "active": "Active"
+  },
+
+  "meta": {
+    "settingsTitle": "Settings",
+    "forbiddenTitle": "Access denied",
+    "adminTitle": "Admin panel",
+    "homeTitle": "Home",
+    "loginTitle": "Log in",
+    "registerTitle": "Sign up",
+    "userNotFound": "Uset not found"
+  },
+
+  "profile": {
+    "lang": "Language",
+    "settings": "Settings",
+    "links": "Links",
+    "admin": "Admin",
+    "adminSub": "Admin Panel",
+    "subscription": "Subscription",
+    "statusFree": "Free",
+    "statusPremium": "Premium · until {date}",
+    "premiumActivated": "Premium activated",
+    "paymentFailed": "Failed to process payment",
+    "openInTelegram": "Open in Telegram"
+  },
+
+  "navigation": {
+    "home": "Home",
+    "profile": "Profile"
+  },
+
+  "LanguageSwitcher": {
+    "title": "Choose Language"
+  },
+
+  "dashboard": {
+    "title": "Dashboard",
+    "decription": "Welcome to your dashboard!"
+  },
+
+  "roleSelect": {
+    "success": "Role updated",
+    "confirmTitle": "Grant administrator access?",
+    "confirmDescription": "The user \"{userLabel}\" will get full access to the admin panel, including managing other users' roles.",
+    "grantAccess": "Grant access"
+  },
+
+  "adminUsers": {
+    "title": "Users",
+    "loadError": "Failed to load users.",
+    "columnUser": "User",
+    "columnEmail": "Email",
+    "columnTelegramId": "Telegram ID",
+    "columnRole": "Role",
+    "loading": "Loading...",
+    "empty": "No users found",
+    "total": "Total: {total}",
+    "searchPlaceholder": "Search by name or telegram ID...",
+    "pagination": "Page {page} of {totalPages}",
+    "next": "Next"
+  },
+
+  "forbidden": {
+    "unauthenticatedTitle": "Sign in required",
+    "unauthenticatedDescription": "You need to log in to access this page.",
+    "unauthenticatedAction": "Log in",
+    "forbiddenTitle": "Access denied",
+    "forbiddenDescription": "You don't have permission to view this page.",
+    "forbiddenAction": "Back home"
+  },
+
+  "errorPage": {
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred. We're already aware of it — try refreshing the page.",
+    "errorId": "Error ID: {digest}",
+    "retry": "Try again",
+    "home": "Back home"
+  },
+
+  "SiteConfig": {
+    "description": "A Next.js starter built with FSD architecture"
+  },
+
+  "NotFound": {
+    "title": "Page not found",
+    "description": "The page you're looking for doesn't exist.",
+    "backHome": "Back home"
+  },
+
+  "themes": {
+    "dark": "Dark",
+    "light": "Light",
+    "system": "System",
+    "toggle": "Change theme"
+  }
+}
