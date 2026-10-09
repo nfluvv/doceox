@@ -25,7 +25,7 @@ export const DeckLanding = async ({
   if (cardCount === 0) return <EmptyDeckState message={t("emptyDeck")} />
 
   return (
-    <main className="">
+    <main className="py-4">
       <Container>
         <DeckLandingHeader
           deck={deck}

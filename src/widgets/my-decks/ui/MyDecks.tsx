@@ -1,5 +1,4 @@
 import { getTranslations } from "next-intl/server"
-import { DECKS_LIMIT } from "@/shared/config/decks"
 import { ClientFilters } from "@/widgets/my-decks/ui/ClientFilters"
 import { DeleteDeckButton } from "@/features/delete-deck/ui/delete-deck-button"
 import { EditDeckButton } from "@/features/edit-deck/ui/edit-deck-button"

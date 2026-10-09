@@ -21,7 +21,7 @@ export const EditDeckButton = ({ deckId }: EditDeckButtonProps) => {
       className="h-8 w-8 rounded-full border-border/60 text-muted-foreground transition-colors hover:border-primary/40 hover:bg-primary/10 hover:text-primary"
       onClick={(e) => e.stopPropagation()}
     >
-      <Link href={`/dashboard/decks/${deckId}/edit`}>
+      <Link href={`/decks/${deckId}/edit`}>
         <Pencil className="h-4 w-4" />
         <span className="sr-only">{t("editAria")}</span>
       </Link>

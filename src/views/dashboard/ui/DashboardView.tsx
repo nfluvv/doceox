@@ -1,18 +1,15 @@
 import { getUserDecks } from "@/entities/deck/api/queries"
-import {
-  getRecentStudiedDecks,
-  getStreak,
-} from "@/entities/study-session/api/queries"
-import { getPopularDecks } from "@/entities/deck/api/queries"
+import { getRecentStudiedDecks } from "@/entities/study-session/api/queries"
+
+import { getCurrentUser } from '@/entities/user/api/queries'
 
 import { Container } from "@/shared/client/ui"
 
 import { DashboardHeader } from "@/widgets/dashboard-header"
 import { RecentStudiedDecks } from "@/widgets/recent-studied-decks"
-import { PopularDecks } from "@/widgets/popular-decks"
-import { DashboardSidebar } from "@/widgets/dishboard-sidebar/ui/DashboardSidebar"
-import { SavedDecks } from "@/widgets/saved-decks"
+import { DashboardSidebar } from "@/widgets/dashboard-sidebar/ui/DashboardSidebar"
 import { MyDecks } from "@/widgets/my-decks"
+import { notFound } from "next/navigation"
 
 interface DashboardProps {
   searchParams: Promise<{
@@ -26,30 +23,26 @@ interface DashboardProps {
 export async function DashboardView({ searchParams }: DashboardProps) {
   const {
     query = "",
-    savedQuery = "",
     filter = "all",
-    savedPage = "1",
   } = await searchParams
 
-  const savedPageNum = Math.max(1, Number(savedPage) || 1)
 
-  const [decks, popularDecks, recentStudied, streak] = await Promise.all([
+  const [decks, recentStudied, user] = await Promise.all([
     getUserDecks(),
-    getPopularDecks(),
     getRecentStudiedDecks(),
-    getStreak(),
+    getCurrentUser(),
   ])
+
+  if (!user) notFound()
 
   const currentDecksCount = decks?.length ?? 0
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="min-h-screen bg-background text-foreground pb-6">
       <Container className="py-4">
         <DashboardHeader />
 
         <RecentStudiedDecks items={recentStudied} />
-
-        {decks?.length === 0 && <PopularDecks decks={popularDecks} />}
 
         <section>
           <MyDecks
@@ -60,12 +53,10 @@ export async function DashboardView({ searchParams }: DashboardProps) {
           />
 
           <DashboardSidebar
-            streak={streak}
             currentDecksCount={currentDecksCount}
+            isPremium={user.isPremium}
           />
         </section>
-
-        <SavedDecks savedQuery={savedQuery} savedPage={savedPageNum} />
       </Container>
     </main>
   )

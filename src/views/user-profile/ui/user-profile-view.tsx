@@ -5,7 +5,6 @@ import { UserProfile } from "@/widgets/user-profile-card"
 import { LanguageSwitcher } from "@/features/switch-locale"
 import { getTranslations } from "next-intl/server"
 import { Container, SettingsGroup, SettingsRow } from "@/shared/client/ui"
-import { GitHubIcon } from "@/shared/client/ui/icons"
 import { PremiumRow } from "@/features/buy-premium"
 import { User } from "lucide-react"
 

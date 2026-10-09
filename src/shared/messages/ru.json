@@ -25,6 +25,7 @@
     "searchPlaceholder": "Поиск колод...",
     "decksNotFound": "Колоды не найдены",
     "decksCount": "{count} из {total} колод",
+    "decksCountPremium": "{count} колод(ы) всего",
     "filters": {
       "title": "Показывать",
       "all": "Все колоды",
@@ -93,6 +94,7 @@
     "errors": {
       "unauthorized": "Ошибка авторизации или сервера",
       "decksLimitReached": "Вы достигли лимита колод",
+      "cardsLimitReached": "Вы достигли лимита карточек",
       "addCardFailed": "Не удалось добавить карточку",
       "saveFailed": "Не удалось сохранить колоду",
       "publishFailed": "Ошибка при публикации (возможно, колода пустая)",
@@ -127,6 +129,7 @@
 
   "navigation": {
     "home": "Главная",
+    "saved": "Избранное",
     "profile": "Профиль"
   },
 

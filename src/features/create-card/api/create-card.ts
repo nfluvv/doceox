@@ -1,39 +1,29 @@
 "use server"
 
-import { auth } from "@/auth"
 import { prisma } from "@/shared/server/db/prisma"
-import { createCardSchema, CreateCardInput } from "../model/schema"
-import { MAX_CARDS_PER_DECK } from "@/shared/config/decks"
+import { getCurrentUser } from "@/entities/user/api/queries"
+import { getCardsLimit } from "@/shared/config/decks"
+import { createCardSchema, type CreateCardInput } from "../model/schema"
 
 export async function createCardAction(rawInput: CreateCardInput) {
-  const session = await auth()
-  if (!session?.user?.id) {
-    throw new Error("Unauthorized")
-  }
+  const user = await getCurrentUser()
+  if (!user) return { success: false as const, error: "unauthorized" }
 
-  const validated = createCardSchema.safeParse(rawInput)
-  if (!validated.success) {
-    throw new Error("Invalid input data")
-  }
+  const parsed = createCardSchema.safeParse(rawInput)
+  if (!parsed.success) return { success: false as const, error: "invalidInput" }
 
-  const { deckId, term, definition } = validated.data
+  const { deckId, term, definition } = parsed.data
 
-  return prisma.$transaction(async (tx) => {
-    const deck = await tx.deck.findUnique({
-      where: { id: deckId, userId: session.user.id },
-      select: { _count: { select: { cards: true } } },
-    })
-
-    if (!deck) {
-      throw new Error("Forbidden")
-    }
-
-    if (deck._count.cards >= MAX_CARDS_PER_DECK) {
-      throw new Error("Card limit reached")
-    }
-
-    return tx.card.create({
-      data: { deckId, term, definition },
-    })
+  const deck = await prisma.deck.findFirst({
+    where: { id: deckId, userId: user.id },
+    select: { _count: { select: { cards: true } } },
   })
+  if (!deck) return { success: false as const, error: "notFound" }
+
+  if (deck._count.cards >= getCardsLimit(user.isPremium)) {
+    return { success: false as const, error: "cardsLimitReached" }
+  }
+
+  const card = await prisma.card.create({ data: { deckId, term, definition } })
+  return { success: true as const, card }
 }

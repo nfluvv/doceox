@@ -8,6 +8,8 @@ import { toast } from "react-hot-toast"
 import { Button } from "@/shared/client/ui"
 import { saveDeckAction } from "../api/save-deck"
 
+import { cn } from "@/shared/client/lib/utils"
+
 type DeckStatus = "DRAFT" | "PRIVATE" | "PUBLIC"
 type TargetStatus = "PRIVATE" | "PUBLIC"
 
@@ -57,26 +59,19 @@ export function SaveDeckControl({
     })
   }
   return (
-    <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-      <div
-        role="radiogroup"
-        className="flex shrink-0 rounded-full border border-border/60 bg-muted/40 p-0.5"
-      >
+    <div className="flex flex-col gap-3 w-full px-5">
+      <div role="radiogroup" className="grid grid-cols-2 rounded-full border border-border/60 bg-muted/40 p-0.5">
         <button
           type="button"
           role="radio"
           aria-checked={target === "PRIVATE"}
           disabled={isPending}
           onClick={() => setTarget("PRIVATE")}
-          className={`flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-medium transition-colors sm:px-3 ${
-            target === "PRIVATE"
-              ? "bg-background text-foreground shadow-xs"
-              : "text-muted-foreground"
-          } disabled:opacity-40`}
+          className={cn("flex items-center justify-center gap-1.5 rounded-full py-1.5 text-xs font-medium transition-colors px-3 disabled:opacity-40", target === "PRIVATE" ? "bg-background text-foreground shadow-xs" : "text-muted-foreground")}
         >
           <Lock className="size-3.5 shrink-0" />
 
-          <span className="hidden sm:inline">{t("statusPrivate")}</span>
+          <span className="inline">{t("statusPrivate")}</span>
         </button>
 
         <button
@@ -85,15 +80,11 @@ export function SaveDeckControl({
           aria-checked={target === "PUBLIC"}
           disabled={isPending || !canPublish}
           onClick={() => setTarget("PUBLIC")}
-          className={`flex items-center gap-1.5 rounded-full px-2.5 py-1.5 text-xs font-medium transition-colors sm:px-3 ${
-            target === "PUBLIC"
-              ? "bg-background text-primary shadow-xs"
-              : "text-muted-foreground"
-          } disabled:cursor-not-allowed disabled:opacity-40`}
+          className={cn("flex items-center justify-center gap-1.5 rounded-full py-1.5 text-xs font-medium transition-colors px-3 disabled:cursor-not-allowed disabled:opacity-40", target === "PUBLIC" ? "bg-background text-primary shadow-xs" : "text-muted-foreground")}
         >
           <Globe className="size-3.5 shrink-0" />
 
-          <span className="hidden sm:inline">{t("statusPublic")}</span>
+          <span className="inline">{t("statusPublic")}</span>
         </button>
       </div>
 

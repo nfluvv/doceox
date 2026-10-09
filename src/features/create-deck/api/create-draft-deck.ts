@@ -2,33 +2,24 @@
 
 import { revalidatePath } from "next/cache"
 
-import { auth } from "@/auth"
 import { prisma } from "@/shared/server/db/prisma"
-import { DECKS_LIMIT } from "@/shared/config/decks"
+import { getCurrentUser } from "@/entities/user/api/queries"
+import { getDecksLimit } from "@/shared/config/decks"
 
 export async function createDraftDeckAction() {
-  const session = await auth()
+  const user = await getCurrentUser()
+  if (!user) return { success: false as const, error: "unauthorized" }
 
-  if (!session?.user?.id) {
-    throw new Error("Unauthorized")
+  const count = await prisma.deck.count({ where: { userId: user.id } })
+  if (count >= getDecksLimit(user.isPremium)) {
+    return { success: false as const, error: "decksLimitReached" }
   }
 
-  const userId = session.user.id
-
-  const deck = await prisma.$transaction(async (tx) => {
-    const count = await tx.deck.count({ where: { userId } })
-
-    if (count >= DECKS_LIMIT) {
-      throw new Error("DECKS_LIMIT_REACHED")
-    }
-
-    return tx.deck.create({
-      data: { title: "Untitled", userId },
-      select: { id: true },
-    })
+  const deck = await prisma.deck.create({
+    data: { title: "Untitled", userId: user.id },
+    select: { id: true },
   })
 
-  revalidatePath("/dashboard")
-
-  return deck
+  revalidatePath("/")
+  return { success: true as const, deck }
 }

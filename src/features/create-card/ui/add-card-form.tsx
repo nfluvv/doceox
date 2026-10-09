@@ -9,6 +9,7 @@ import { Loader2, Plus } from "lucide-react"
 import { Button, Input, Label } from "@/shared/client/ui"
 import { createCardAction } from "../api/create-card"
 import { createCardSchema, CreateCardInput } from "../model/schema"
+import toast from "react-hot-toast"
 
 type CardItem = { id: string; term: string; definition: string }
 
@@ -34,8 +35,18 @@ export function AddCardForm({ deckId, onCardAdded }: AddCardFormProps) {
   const onSubmit = async (values: CreateCardInput) => {
     setServerError(null)
     try {
-      const card = await createCardAction({ ...values, deckId })
-      onCardAdded(card)
+      const res = await createCardAction({ ...values, deckId })
+
+      if (!res.card) {
+        toast.error(
+          res.error === "cardsLimitReached"
+            ? t("errors.cardsLimitReached")
+            : t("errors.unauthorized")
+        )
+        return
+      }
+
+      onCardAdded(res?.card)
       reset({ deckId, term: "", definition: "" })
     } catch {
       setServerError(t("errors.addCardFailed"))
@@ -51,7 +62,7 @@ export function AddCardForm({ deckId, onCardAdded }: AddCardFormProps) {
         {t("newCardHeading")}
       </h3>
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4">
         <div className="space-y-1.5">
           <Label htmlFor="term" className="sr-only">
             {t("termLabel")}

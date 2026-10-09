@@ -1,10 +1,6 @@
-# ⚡ nxt-v2 — Production-Ready Telegram Web Apps (TWA) Starter
+# ⚡ Doceox
 
-A battle-tested, high-performance Telegram Mini Apps (TWA) framework built with **Next.js 16 (App Router)**, **Auth.js v5**, **Prisma ORM**, **PostgreSQL**, and structured around **Feature-Sliced Design (FSD)**.
-
-Engineered to eliminate 90% of standard Web2 infrastructure overhead. No credentials, no email verification bottlenecks, and no domain paywalls. This architecture utilizes native Telegram authentication (`initData` cryptographic validation) and integrates seamlessly with the Telegram Stars ecosystem for frictionless in-app monetization, routing payouts directly to your TON wallet via Fragment.
-
-**[🪐 Live Interactive Demo](https://t.me/nxt_v2_bot/nxtemplate)**
+Hi there!
 
 ---
 
@@ -43,8 +39,8 @@ Engineered to eliminate 90% of standard Web2 infrastructure overhead. No credent
 #### 1. Clone the Architecture Tree
 
 ```bash
-git clone https://github.com/nfluvv/nxt-v2
-cd nxt-v2
+git clone https://github.com/nfluvv/doceox
+cd doceox
 ```
 
 #### 2. Bootstrap Node Packages Workspace
@@ -113,9 +109,3 @@ src/
 
 app/              # Next.js physical file-system localization routing matrix
 ```
-
----
-
-### 💰 Core License
-
-- Open-source software deployed under the **Apache 2.0 License**. Full legal compliance text is verified in the repository tree.

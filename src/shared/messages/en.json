@@ -25,6 +25,7 @@
     "searchPlaceholder": "Search decks...",
     "decksNotFound": "Decks not found",
     "decksCount": "{count} of {total} decks",
+    "decksCountPremium": "{count} decks in total",
     "filters": {
       "title": "Visibility",
       "all": "All decks",
@@ -93,6 +94,7 @@
     "errors": {
       "unauthorized": "Authorization or server error",
       "decksLimitReached": "You have reached your deck limit",
+      "cardsLimitReached": "You have reached your card limit",
       "addCardFailed": "Failed to add the card",
       "saveFailed": "Failed to save the deck",
       "publishFailed": "Failed to publish (the deck may be empty)",
@@ -127,6 +129,7 @@
 
   "navigation": {
     "home": "Home",
+    "saved": "Favourites",
     "profile": "Profile"
   },
 

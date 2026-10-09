@@ -19,17 +19,21 @@ export function StartDeckCard() {
     setLoading(true)
 
     try {
-      const deck = await createDraftDeckAction()
-      router.push(`/dashboard/decks/${deck.id}/edit`)
-    } catch (e) {
-      const message = e instanceof Error ? e.message : ""
+      const res = await createDraftDeckAction()
 
-      toast.error(
-        message === "DECKS_LIMIT_REACHED"
-          ? t("errors.decksLimitReached")
-          : t("errors.unauthorized")
-      )
+      if (!res.success) {
+        toast.error(
+          res.error === "decksLimitReached"
+            ? t("errors.decksLimitReached")
+            : t("errors.unauthorized")
+        )
+        setLoading(false)
+        return
+      }
 
+      router.push(`/decks/${res.deck.id}/edit`)
+    } catch {
+      toast.error(t("errors.unknown"))
       setLoading(false)
     }
   }
@@ -41,7 +45,6 @@ export function StartDeckCard() {
       disabled={loading}
       className="group relative flex h-71.25 w-full cursor-pointer flex-col overflow-hidden rounded-[20px] border border-dashed border-border bg-card p-6 text-left text-card-foreground transition-[background-color,border-color,box-shadow] duration-300 ease-out hover:border-foreground/25 hover:bg-muted/30 hover:shadow-sm focus-visible:ring-2 focus-visible:ring-foreground/30 focus-visible:outline-none disabled:cursor-wait"
     >
-      {/* Decorative rings */}
       <div
         aria-hidden
         className="pointer-events-none absolute -top-28 -right-28 size-72 rounded-full border border-foreground/[0.035]"
@@ -57,7 +60,6 @@ export function StartDeckCard() {
         className="pointer-events-none absolute -top-12 -right-12 size-40 rounded-full border border-foreground/4.5"
       />
 
-      {/* Top */}
       <div className="relative z-10 flex items-center justify-between">
         <span className="font-mono text-[9px] font-medium tracking-[0.18em] text-muted-foreground/60 uppercase">
           NEW DECK
@@ -72,7 +74,6 @@ export function StartDeckCard() {
         </span>
       </div>
 
-      {/* Content */}
       <div className="relative z-10 mt-auto">
         <div
           aria-hidden
@@ -90,7 +91,6 @@ export function StartDeckCard() {
         </p>
       </div>
 
-      {/* Footer */}
       <div className="relative z-10 mt-5 flex items-center">
         <span className="text-xs font-medium">
           {loading ? t("starting") : t("startButton")}

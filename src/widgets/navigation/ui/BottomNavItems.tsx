@@ -1,6 +1,6 @@
 "use client"
 
-import { Home, User } from "lucide-react"
+import { Home, User, Sparkles } from "lucide-react"
 import { Link, usePathname } from "@/shared/i18n/navigation"
 import { siteConfig } from "@/shared/client/config/site"
 import { cn } from "@/shared/client/lib/utils"
@@ -16,7 +16,7 @@ export function BottomNavItems({ isAuthed }: { isAuthed: boolean }) {
 
   const items = [
     { href: siteConfig.routes.home, label: t("home"), icon: Home },
-    // { href: "/viral", label: "Viral", icon: User },
+    { href: "/saved", label: t("saved"), icon: Sparkles },
     { href: "/profile", label: t("profile"), icon: User },
   ] as const
 

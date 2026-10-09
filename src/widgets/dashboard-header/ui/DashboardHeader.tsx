@@ -5,7 +5,7 @@ export const DashboardHeader = async () => {
 
   return (
     <header className="mb-6">
-      <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+      <h1 className="text-3xl font-semibold tracking-tight">
         {t("title")}
       </h1>
 

@@ -8,10 +8,10 @@ type Props = {
 
 export function DeckReviewCta({ deckId, dueCount, t }: Props) {
   return (
-    <section className="border-b border-border/60 py-7 sm:py-8">
-      <div className="flex flex-col gap-7 lg:flex-row lg:items-center lg:justify-between">
+    <section className="border-b border-border/60 py-7">
+      <div className="flex flex-col gap-7">
         <div className="min-w-0">
-          <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+          <h2 className="text-2xl font-semibold tracking-tight">
             {dueCount > 0 ? t("reviewDueTitle") : t("allReviewed")}
           </h2>
 
@@ -23,7 +23,7 @@ export function DeckReviewCta({ deckId, dueCount, t }: Props) {
         </div>
 
         {dueCount > 0 && (
-          <div className="shrink-0 lg:w-64">
+          <div className="shrink-0">
             <Link
               href={`/decks/${deckId}/review`}
               className="group flex h-12 w-full items-center justify-between rounded-[14px] bg-primary px-4 text-sm font-medium text-primary-foreground transition-all duration-200 hover:opacity-90 active:scale-[0.99]"

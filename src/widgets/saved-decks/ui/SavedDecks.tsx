@@ -14,12 +14,12 @@ export const SavedDecks = async ({
   const t = await getTranslations("dashboard")
 
   return (
-    <section className="mt-16 pb-12">
+    <section className="pb-12">
       <div className="mb-5 flex flex-col gap-4">
         <div>
-          <h2 className="text-lg font-semibold tracking-tight">
+          <h1 className="text-3xl font-semibold tracking-tight">
             {t("saved.title")}
-          </h2>
+          </h1>
           <p className="mt-1 text-sm text-muted-foreground">
             {t("saved.desc")}
           </p>
