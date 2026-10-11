@@ -13,7 +13,7 @@ export const PRODUCTS = {
   premium_lifetime: {
     title: "Lifetime Premium",
     description: "Lifetime access to Premium",
-    stars: 599,
+    stars: 149,
     fulfill: setPremium(true),
     revoke: setPremium(false),
   },

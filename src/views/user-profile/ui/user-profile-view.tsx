@@ -6,6 +6,7 @@ import { LanguageSwitcher } from "@/features/switch-locale"
 import { getTranslations } from "next-intl/server"
 import { Container, SettingsGroup, SettingsRow } from "@/shared/client/ui"
 import { PremiumRow } from "@/features/buy-premium"
+import { Streak } from "@/widgets/streak-widget"
 import { User } from "lucide-react"
 
 export async function UserProfileView() {
@@ -20,6 +21,13 @@ export async function UserProfileView() {
         <UserProfile profile={profile} />
 
         <div className="mt-8 flex flex-col gap-8">
+          <SettingsGroup title={t("stats")}>
+            <ul className="py-3 grid grid-cols-1 gap-5">
+              <Streak />
+              {/* <Streak /> */}
+            </ul>
+          </SettingsGroup>
+
           <SettingsGroup title={t("subscription")}>
             <PremiumRow isPremium={profile.isPremium} />
           </SettingsGroup>

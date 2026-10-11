@@ -35,7 +35,7 @@ export function DeckLandingHeader({ deck, isOwner, cardCount, t }: Props) {
 
             {username ? (
               <Link
-                href={`/users/${username}`}
+                href={`/u/${username}/decks`}
                 className="transition-colors hover:text-foreground"
               >
                 {authorLabel}

@@ -6,6 +6,11 @@ import { auth } from "@/auth"
 
 const PAGE_SIZE = 20
 
+type GetAllUsersParams = {
+  query?: string
+  page?: number
+}
+
 export const getCurrentUser = cache(async () => {
   const session = await auth()
   if (!session?.user?.id) return null
@@ -24,10 +29,19 @@ export const getCurrentUser = cache(async () => {
   })
 })
 
-type GetAllUsersParams = {
-  query?: string
-  page?: number
-}
+export const getUserByUsername = cache(async (username: string) => {
+  return prisma.user.findUnique({
+    where: { username },
+    select: {
+      id: true,
+      name: true,
+      username: true,
+      image: true,
+      createdAt: true,
+      savedDecks: true,
+    },
+  })
+})
 
 export const getAllUsers = async ({
   query = "",

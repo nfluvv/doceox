@@ -17,8 +17,6 @@
     "manageDecks": "Manage your decks and track your progress",
     "startNewDeck": "Start a new deck",
     "totalDecks": "Total decks in your profile",
-    "streak": "Streak",
-    "days": "days",
     "reviewAgain": "Review again",
     "recentlyStudied": "Decks you recently studied",
     "studied": "Studied:",
@@ -117,6 +115,7 @@
     "lang": "Language",
     "settings": "Settings",
     "links": "Links",
+    "stats": "Statistics",
     "admin": "Admin",
     "adminSub": "Admin Panel",
     "subscription": "Subscription",
@@ -124,7 +123,9 @@
     "statusPremium": "Premium",
     "premiumActivated": "Premium activated",
     "paymentFailed": "Failed to process payment",
-    "openInTelegram": "Open in Telegram"
+    "openInTelegram": "Open in Telegram",
+    "streak": "Streak",
+    "days": "days"
   },
 
   "navigation": {

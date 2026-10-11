@@ -17,8 +17,6 @@
     "manageDecks": "Управляй своими колодами и отслеживай прогресс",
     "startNewDeck": "Начать новую колоду",
     "totalDecks": "Всего колод в вашем профиле",
-    "streak": "Стрик",
-    "days": "дней",
     "reviewAgain": "Повторите снова",
     "recentlyStudied": "Колоды, которые вы недавно изучали",
     "studied": "Изучено:",
@@ -116,6 +114,7 @@
   "profile": {
     "lang": "Язык",
     "settings": "Настройки",
+    "stats": "Статистика",
     "links": "Ссылки",
     "admin": "Админ",
     "adminSub": "Админ-панель",
@@ -124,7 +123,9 @@
     "statusPremium": "Premium",
     "premiumActivated": "Premium активирован",
     "paymentFailed": "Не удалось оплатить",
-    "openInTelegram": "Откройте приложение в Telegram"
+    "openInTelegram": "Откройте приложение в Telegram",
+    "streak": "Ударный режим",
+    "days": "дней"
   },
 
   "navigation": {
