@@ -32,7 +32,6 @@
     "@tanstack/react-query": "^5.101.4",
     "@telegram-apps/types": "^2.0.3",
     "@twa-dev/types": "^8.0.2",
-    "canvas-confetti": "^1.9.4",
     "class-variance-authority": "^0.7.1",
     "cloudinary": "^2.10.0",
     "clsx": "^2.1.1",

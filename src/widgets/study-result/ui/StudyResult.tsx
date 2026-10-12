@@ -6,7 +6,6 @@ import { Container } from "@/shared/client/ui"
 import { getTier } from "@/entities/study-session/lib/tier"
 import { TierBadge } from "./tier-badge"
 import { useCountUp } from "@/shared/client/hooks/use-count-up"
-import { useConfetti } from "@/shared/client/hooks/use-confetti"
 import { useHaptics } from "@/shared/client/hooks/use-haptics"
 
 export type FinishStats = { correct: number; total: number }
@@ -33,7 +32,6 @@ export function StudyResult({
   const animatedPct = useCountUp(percentage)
 
   const celebrate = tier === "S" || tier === "A"
-  useConfetti(celebrate)
 
   const { vibrate } = useHaptics()
   useEffect(() => {
