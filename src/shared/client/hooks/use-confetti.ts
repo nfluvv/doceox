@@ -10,7 +10,7 @@ export function useConfetti(active: boolean) {
     fired.current = true
 
     import("canvas-confetti").then(({ default: confetti }) => {
-      confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } })
+      confetti({ particleCount: 40, spread: 60, origin: { y: 0.6 } })
     })
   }, [active])
 }

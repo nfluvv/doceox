@@ -18,7 +18,7 @@ export function checkAuthorization({
   origin,
 }: CheckAuthorizationParams): true | Response {
   if (pathname.startsWith("/admin") && role !== "ADMIN") {
-    return Response.redirect(new URL(`/${locale}`, origin))
+    return Response.redirect(new URL('/', origin))
   }
 
   const isPublicRoute = PUBLIC_ROUTES.some(
@@ -26,7 +26,7 @@ export function checkAuthorization({
   )
 
   if (!isLoggedIn && !isPublicRoute) {
-    const url = new URL(`/${locale}`, origin)
+    const url = new URL('/', origin)
     url.searchParams.set("next", pathname)
     return Response.redirect(url)
   }
