@@ -43,7 +43,6 @@ export async function DashboardView({ searchParams }: DashboardProps) {
     )
   }
 
-
   const currentDecksCount = decks?.length ?? 0
 
   return (

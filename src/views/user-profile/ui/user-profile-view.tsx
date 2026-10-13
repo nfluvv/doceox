@@ -22,10 +22,7 @@ export async function UserProfileView() {
 
         <div className="mt-8 flex flex-col gap-8">
           <SettingsGroup title={t("stats")}>
-            <ul className="py-3 grid grid-cols-1 gap-5">
-              <Streak />
-              {/* <Streak /> */}
-            </ul>
+            <Streak />
           </SettingsGroup>
 
           <SettingsGroup title={t("subscription")}>
