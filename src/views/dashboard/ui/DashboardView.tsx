@@ -33,7 +33,6 @@ export async function DashboardView({ searchParams }: DashboardProps) {
     getCurrentUser(),
   ])
 
-  if (!user) notFound()
 
   const currentDecksCount = decks?.length ?? 0
 
@@ -54,7 +53,7 @@ export async function DashboardView({ searchParams }: DashboardProps) {
 
           <DashboardSidebar
             currentDecksCount={currentDecksCount}
-            isPremium={user.isPremium}
+            isPremium={user?.isPremium || false}
           />
         </section>
       </Container>
