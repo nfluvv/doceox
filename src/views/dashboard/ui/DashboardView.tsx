@@ -33,6 +33,16 @@ export async function DashboardView({ searchParams }: DashboardProps) {
     getCurrentUser(),
   ])
 
+  if (!user) {
+    return (
+      <main>
+        <Container className="">
+          Loading...
+        </Container>
+      </main>
+    )
+  }
+
 
   const currentDecksCount = decks?.length ?? 0
 
