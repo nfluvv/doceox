@@ -261,7 +261,7 @@ button {
   cursor: pointer;
 }
 
-/* анимации */
+/* animations */
 @keyframes shake {
   10%,
   90% {

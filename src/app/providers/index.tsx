@@ -9,6 +9,17 @@ import { QueryProvider } from "./query-provider"
 import { ThemeProvider } from "./theme-provider"
 import { TwaGuard } from "./twa-guard"
 import { TelegramAutoLogin } from "./telegram-auto-login"
+import { Container, Loader } from "@/shared/client/ui";
+
+function Loading() {
+  return (
+    <main>
+      <Container className="flex items-center justify-center">
+        <Loader />
+      </Container>
+    </main>
+  )
+}
 
 export function AppProviders({ children }: PropsWithChildren) {
   return (
@@ -17,7 +28,7 @@ export function AppProviders({ children }: PropsWithChildren) {
         <QueryProvider>
           <TwaGuard>{children}</TwaGuard>
           {/* {children} */}
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Loading />}>
             <TelegramAutoLogin />
           </Suspense>
           <Toaster

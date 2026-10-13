@@ -3,7 +3,7 @@ import { getRecentStudiedDecks } from "@/entities/study-session/api/queries"
 
 import { getCurrentUser } from '@/entities/user/api/queries'
 
-import { Container } from "@/shared/client/ui"
+import { Container, Loader } from "@/shared/client/ui"
 
 import { DashboardHeader } from "@/widgets/dashboard-header"
 import { RecentStudiedDecks } from "@/widgets/recent-studied-decks"
@@ -36,8 +36,8 @@ export async function DashboardView({ searchParams }: DashboardProps) {
   if (!user) {
     return (
       <main>
-        <Container className="">
-          Loading...
+        <Container className="flex items-center justify-center">
+          <Loader />
         </Container>
       </main>
     )

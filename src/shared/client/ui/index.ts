@@ -6,6 +6,7 @@ export { EmptyDeckState } from './empty-deck-state'
 export { LivesDisplay } from './lives-display'
 export { ProgressBar } from './progress-bar'
 export { TimerRing } from './timer-ring'
+export { Loader } from './loader'
 export * from "./icons"
 export * from "./shadcn/button"
 export * from "./shadcn/input"
