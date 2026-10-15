@@ -1,9 +1,9 @@
 import { getCurrentUser } from "@/entities/user/api/queries"
+import { AuthGate } from "@/features/telegram-auth"
 
 import { Container } from "@/shared/client/ui"
 
 import { SavedDecks } from "@/widgets/saved-decks"
-import { notFound } from "next/navigation"
 
 interface DashboardProps {
   searchParams: Promise<{
@@ -21,7 +21,7 @@ export async function SavedView({ searchParams }: DashboardProps) {
 
   const [user] = await Promise.all([getCurrentUser()])
 
-  if (!user) notFound()
+  if (!user) return <AuthGate />
 
   return (
     <main className="min-h-screen bg-background text-foreground">

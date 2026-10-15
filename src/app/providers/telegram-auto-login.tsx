@@ -6,7 +6,7 @@ import { useSearchParams } from "next/navigation"
 import { useRouter } from "@/shared/i18n/navigation"
 
 const safeNext = (v: string | null) =>
-  v && v.startsWith("/") && !v.startsWith("//") ? v : "/dashboard"
+  v && v.startsWith("/") && !v.startsWith("//") ? v : null
 
 async function getInitData(): Promise<string | null> {
   const real = window.Telegram?.WebApp?.initData
@@ -16,7 +16,6 @@ async function getInitData(): Promise<string | null> {
     const fromUrl = new URLSearchParams(location.search).get("mockUser")
     if (fromUrl) localStorage.setItem("mockUser", fromUrl)
     const id = localStorage.getItem("mockUser") ?? "1"
-
     const res = await fetch(`/api/dev/init-data?id=${id}`)
     return (await res.json()).initData
   }
@@ -30,12 +29,8 @@ export function TelegramAutoLogin() {
   const started = useRef(false)
 
   useEffect(() => {
-    window.Telegram?.WebApp?.ready()
-    window.Telegram?.WebApp?.expand()
-
     if (status === "loading" || started.current) return
     started.current = true
-    const wasLoggedIn = status === "authenticated"
 
     void (async () => {
       const initData = await getInitData()
@@ -46,8 +41,9 @@ export function TelegramAutoLogin() {
         started.current = false
         return
       }
-      if (wasLoggedIn) router.refresh()
-      else router.replace(next)
+
+      if (next) router.replace(next)
+      else router.refresh()
     })()
   }, [status, router, next])
 

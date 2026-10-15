@@ -10,6 +10,8 @@ type CheckAuthorizationParams = {
   origin: string
 }
 
+const isProd = process.env.NODE_ENV === "production"
+
 export function checkAuthorization({
   isLoggedIn,
   role,
@@ -44,8 +46,13 @@ export const authConfig = {
   callbacks: { authorized: () => true },
   cookies: {
     sessionToken: {
-      name: "__Secure-authjs.session-token",
-      options: { httpOnly: true, sameSite: "none", secure: true, path: "/" },
+      name: isProd ? `__Secure-authjs.session-token` : `authjs.session-token`,
+      options: {
+        httpOnly: true,
+        sameSite: isProd ? "none" : "lax",
+        path: "/",
+        secure: isProd,
+      },
     },
   },
 } satisfies NextAuthConfig

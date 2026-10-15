@@ -9,6 +9,7 @@ import { DashboardHeader } from "@/widgets/dashboard-header"
 import { RecentStudiedDecks } from "@/widgets/recent-studied-decks"
 import { DashboardSidebar } from "@/widgets/dashboard-sidebar/ui/DashboardSidebar"
 import { MyDecks } from "@/widgets/my-decks"
+import { AuthGate } from "@/features/telegram-auth"
 
 interface DashboardProps {
   searchParams: Promise<{
@@ -28,15 +29,7 @@ export async function DashboardView({ searchParams }: DashboardProps) {
     getCurrentUser(),
   ])
 
-  if (!user) {
-    return (
-      <main>
-        <Container className="flex items-center justify-center">
-          <Loader />
-        </Container>
-      </main>
-    )
-  }
+  if (!user) return <AuthGate /> 
 
   const currentDecksCount = decks?.length ?? 0
 
