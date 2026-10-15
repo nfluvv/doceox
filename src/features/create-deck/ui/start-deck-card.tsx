@@ -1,42 +1,9 @@
 "use client"
 
-import { useState } from "react"
-import { useRouter } from "next/navigation"
-import { useTranslations } from "next-intl"
-import { Loader2, Plus } from "lucide-react"
-import toast from "react-hot-toast"
-
-import { createDraftDeckAction } from "../api/create-draft-deck"
+import { useCreateDeck } from "../model/useCreateDeck"
 
 export function StartDeckCard() {
-  const t = useTranslations("deckCreation")
-  const router = useRouter()
-  const [loading, setLoading] = useState(false)
-
-  const handleStart = async () => {
-    if (loading) return
-
-    setLoading(true)
-
-    try {
-      const res = await createDraftDeckAction()
-
-      if (!res.success) {
-        toast.error(
-          res.error === "decksLimitReached"
-            ? t("errors.decksLimitReached")
-            : t("errors.unauthorized")
-        )
-        setLoading(false)
-        return
-      }
-
-      router.push(`/decks/${res.deck.id}/edit`)
-    } catch {
-      toast.error(t("errors.unknown"))
-      setLoading(false)
-    }
-  }
+  const { loading, handleStart, t } = useCreateDeck()
 
   return (
     <button
@@ -63,14 +30,6 @@ export function StartDeckCard() {
       <div className="relative z-10 flex items-center justify-between">
         <span className="font-mono text-[9px] font-medium tracking-[0.18em] text-muted-foreground/60 uppercase">
           NEW DECK
-        </span>
-
-        <span className="flex size-8 items-center justify-center rounded-full bg-foreground text-background transition-transform duration-300 ease-out group-hover:scale-105">
-          {loading ? (
-            <Loader2 className="size-3.5 animate-spin" />
-          ) : (
-            <Plus className="size-4" strokeWidth={1.5} />
-          )}
         </span>
       </div>
 

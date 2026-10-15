@@ -83,10 +83,6 @@ export function EditDeckView({
                     {t("cardsDescription")}
                   </p>
                 </div>
-
-                <span className="font-mono text-[10px] tracking-widest text-muted-foreground/50 uppercase">
-                  {cards.length}
-                </span>
               </div>
             </div>
 

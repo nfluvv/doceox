@@ -35,7 +35,7 @@ export function BottomNavItems({ isAuthed }: { isAuthed: boolean }) {
   const count = visible.length
 
   return (
-    <ul className="relative mx-auto grid h-16 max-w-md auto-cols-fr grid-flow-col px-0">
+    <ul className="relative mx-auto grid h-16 max-w-md auto-cols-fr grid-flow-col px-0 overflow-x-hidden">
       <li
         aria-hidden
         className={cn(

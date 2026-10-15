@@ -3,7 +3,7 @@ import { ClientFilters } from "@/widgets/my-decks/ui/ClientFilters"
 import { DeleteDeckButton } from "@/features/delete-deck/ui/delete-deck-button"
 import { EditDeckButton } from "@/features/edit-deck/ui/edit-deck-button"
 import { DeckCard } from "@/entities/deck/ui/DeckCard"
-import { StartDeckCard } from "@/features/create-deck/ui/start-deck-card"
+import { StartDeckCard } from "@/features/create-deck"
 import type { DeckWithCount } from "@/entities/deck"
 
 interface MyDecksProps {
@@ -64,8 +64,6 @@ export const MyDecks = async ({
           <StartDeckCard />
         ) : (
           <>
-            {!query && (!filter || filter === "all") && <StartDeckCard />}
-
             {filteredDecks?.map((deck) => (
               <DeckCard
                 key={deck.id}

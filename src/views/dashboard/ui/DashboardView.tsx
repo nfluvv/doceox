@@ -3,13 +3,14 @@ import { getRecentStudiedDecks } from "@/entities/study-session/api/queries"
 
 import { getCurrentUser } from "@/entities/user/api/queries"
 
-import { Container, Loader } from "@/shared/client/ui"
+import { Container } from "@/shared/client/ui"
 
 import { DashboardHeader } from "@/widgets/dashboard-header"
 import { RecentStudiedDecks } from "@/widgets/recent-studied-decks"
 import { DashboardSidebar } from "@/widgets/dashboard-sidebar/ui/DashboardSidebar"
 import { MyDecks } from "@/widgets/my-decks"
 import { AuthGate } from "@/features/telegram-auth"
+import { CreateDeckButton } from "@/features/create-deck"
 
 interface DashboardProps {
   searchParams: Promise<{
@@ -54,6 +55,8 @@ export async function DashboardView({ searchParams }: DashboardProps) {
           />
         </section>
       </Container>
+
+      <CreateDeckButton />
     </main>
   )
 }
