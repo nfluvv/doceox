@@ -131,7 +131,8 @@
   "navigation": {
     "home": "Главная",
     "saved": "Избранное",
-    "profile": "Профиль"
+    "profile": "Профиль",
+    "newDeck": "Новая Колода"
   },
 
   "LanguageSwitcher": {

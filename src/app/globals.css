@@ -77,9 +77,7 @@
 :root {
   color-scheme: light;
 
-  --bottom-nav-height: 4rem
-
-  --background: #f8f8f8;
+  --bottom-nav-height: 4rem --background: #f8f8f8;
   --foreground: #18181b;
 
   --card: #ffffff;

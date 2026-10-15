@@ -6,7 +6,6 @@ import { authConfig } from "@/auth.config"
 import { verifyInitData } from "@/shared/server/telegram/verify-init-data"
 import { findOrCreateTelegramUser } from "@/entities/user/api/find-or-create-telegram-user"
 
-
 export const { handlers, auth, signIn, signOut } = NextAuth({
   ...authConfig,
   providers: [

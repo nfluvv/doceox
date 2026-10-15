@@ -10,7 +10,6 @@ import { RecentStudiedDecks } from "@/widgets/recent-studied-decks"
 import { DashboardSidebar } from "@/widgets/dashboard-sidebar/ui/DashboardSidebar"
 import { MyDecks } from "@/widgets/my-decks"
 import { AuthGate } from "@/features/telegram-auth"
-import { CreateDeckButton } from "@/features/create-deck"
 
 interface DashboardProps {
   searchParams: Promise<{
@@ -30,7 +29,7 @@ export async function DashboardView({ searchParams }: DashboardProps) {
     getCurrentUser(),
   ])
 
-  if (!user) return <AuthGate /> 
+  if (!user) return <AuthGate />
 
   const currentDecksCount = decks?.length ?? 0
 
@@ -55,8 +54,6 @@ export async function DashboardView({ searchParams }: DashboardProps) {
           />
         </section>
       </Container>
-
-      <CreateDeckButton />
     </main>
   )
 }

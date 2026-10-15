@@ -1,10 +1,11 @@
 "use client"
 
-import { Home, User, Sparkles } from "lucide-react"
+import { Home, User, Sparkles, PlusCircle, Loader2, SearchIcon } from "lucide-react"
 import { Link, usePathname } from "@/shared/i18n/navigation"
 import { siteConfig } from "@/shared/client/config/site"
 import { cn } from "@/shared/client/lib/utils"
 import { useTranslations } from "next-intl"
+import { useCreateDeck } from "@/features/create-deck/model/useCreateDeck"
 
 function haptic() {
   window.Telegram?.WebApp?.HapticFeedback?.selectionChanged()
@@ -14,11 +15,34 @@ export function BottomNavItems({ isAuthed }: { isAuthed: boolean }) {
   const pathname = usePathname()
   const t = useTranslations("navigation")
 
+  const { loading, handleStart } = useCreateDeck()
+
   const items = [
-    { href: siteConfig.routes.home, label: t("home"), icon: Home },
-    { href: "/saved", label: t("saved"), icon: Sparkles },
-    { href: "/profile", label: t("profile"), icon: User },
-  ] as const
+    {
+      type: "link" as const,
+      href: siteConfig.routes.home,
+      label: t("home"),
+      icon: Home,
+    },
+    {
+      type: "link" as const,
+      href: "/saved",
+      label: t("saved"),
+      icon: Sparkles,
+    },
+    {
+      type: "action" as const,
+      label: t("newDeck"),
+      icon: PlusCircle,
+      onClick: handleStart,
+    },
+    {
+      type: "link" as const,
+      href: "/profile",
+      label: t("profile"),
+      icon: User,
+    },
+  ]
 
   const visible = isAuthed
     ? items
@@ -31,11 +55,13 @@ export function BottomNavItems({ isAuthed }: { isAuthed: boolean }) {
       ? pathname === href
       : pathname === href || pathname.startsWith(`${href}/`)
 
-  const activeIndex = visible.findIndex((i) => isActive(i.href))
+  const activeIndex = visible.findIndex(
+    (item) => item.type === "link" && isActive(item.href)
+  )
   const count = visible.length
 
   return (
-    <ul className="relative mx-auto grid h-16 max-w-md auto-cols-fr grid-flow-col px-0 overflow-x-hidden">
+    <ul className="relative mx-auto grid h-16 max-w-md auto-cols-fr grid-flow-col overflow-x-hidden px-0">
       <li
         aria-hidden
         className={cn(
@@ -51,36 +77,69 @@ export function BottomNavItems({ isAuthed }: { isAuthed: boolean }) {
         <span className="h-8 w-14 rounded-full bg-primary/15" />
       </li>
 
-      {visible.map(({ href, label, icon: Icon }) => {
-        const active = isActive(href)
+      {visible.map((item) => {
+        const { label, icon: Icon } = item
 
-        return (
-          <li key={href} className="min-w-0">
-            <Link
-              href={href}
-              onClick={haptic}
-              aria-current={active ? "page" : undefined}
-              className={cn(
-                "group relative flex h-full touch-manipulation flex-col items-center gap-0.5 pt-2 select-none [-webkit-tap-highlight-color:transparent]",
-                "transition-colors duration-200",
-                active ? "text-primary" : "text-muted-foreground"
-              )}
-            >
-              <span className="flex h-8 w-14 items-center justify-center">
+        const active =
+          item.type === "link" &&
+          (item.href === siteConfig.routes.home
+            ? pathname === item.href
+            : pathname === item.href || pathname.startsWith(`${item.href}/`))
+
+        const content = (
+          <>
+            <span className="flex h-8 w-14 items-center justify-center">
+              {item.type === "action" && loading ? (
+                <Loader2 className="size-5 animate-spin" />
+              ) : (
                 <Icon
                   className="size-5.5 transition-transform duration-150 group-active:scale-90"
                   strokeWidth={active ? 2.4 : 1.8}
                 />
-              </span>
-              <span
-                className={cn(
-                  "max-w-full truncate px-1 text-[11px] leading-none",
-                  active ? "font-semibold" : "font-medium"
-                )}
+              )}
+            </span>
+
+            <span
+              className={cn(
+                "max-w-full truncate px-1 text-[11px] leading-none",
+                active ? "font-semibold" : "font-medium"
+              )}
+            >
+              {label}
+            </span>
+          </>
+        )
+
+        const className = cn(
+          "group relative flex h-full touch-manipulation flex-col items-center gap-0.5 pt-2 select-none",
+          "transition-colors duration-200 [-webkit-tap-highlight-color:transparent]",
+          active ? "text-primary" : "text-muted-foreground"
+        )
+
+        return (
+          <li key={label} className="min-w-0">
+            {item.type === "link" ? (
+              <Link
+                href={item.href}
+                onClick={haptic}
+                aria-current={active ? "page" : undefined}
+                className={className}
               >
-                {label}
-              </span>
-            </Link>
+                {content}
+              </Link>
+            ) : (
+              <button
+                type="button"
+                onClick={() => {
+                  haptic()
+                  item.onClick()
+                }}
+                disabled={loading}
+                className={cn(className, "w-full disabled:opacity-60")}
+              >
+                {content}
+              </button>
+            )}
           </li>
         )
       })}

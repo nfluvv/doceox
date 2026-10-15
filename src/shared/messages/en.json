@@ -131,7 +131,8 @@
   "navigation": {
     "home": "Home",
     "saved": "Favourites",
-    "profile": "Profile"
+    "profile": "Profile",
+    "newDeck": "New Deck"
   },
 
   "LanguageSwitcher": {

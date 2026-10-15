@@ -14,16 +14,14 @@ export async function Streak() {
         label={t("streak")}
         showChevron={false}
       >
-      <p className="text-sm text-muted-foreground">
-        <span className="font-semibold tracking-tight">
-          {streak}
-        </span>
+        <p className="text-sm text-muted-foreground">
+          <span className="font-semibold tracking-tight">{streak}</span>
           {streak > 0 && (
             <span className="ml-1" aria-hidden>
               🔥
             </span>
           )}
-      </p>
+        </p>
       </SettingsRow>
     </div>
   )
