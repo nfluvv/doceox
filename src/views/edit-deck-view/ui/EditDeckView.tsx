@@ -28,7 +28,10 @@ type DeckEditDashboardProps = {
   cardsLimit: number
 }
 
-export function EditDeckView({ initialDeck, cardsLimit }: DeckEditDashboardProps) {
+export function EditDeckView({
+  initialDeck,
+  cardsLimit,
+}: DeckEditDashboardProps) {
   const t = useTranslations("deckCreation")
 
   const [cards, setCards] = useState<CardItem[]>(initialDeck.cards)
@@ -59,7 +62,6 @@ export function EditDeckView({ initialDeck, cardsLimit }: DeckEditDashboardProps
                   </h1>
                 </div>
               </div>
-
 
               <div className="flex basis-full items-center gap-2 text-xs text-muted-foreground">
                 <span>{t("cardsCountLabel")}</span>
@@ -102,7 +104,7 @@ export function EditDeckView({ initialDeck, cardsLimit }: DeckEditDashboardProps
             </div>
           </section>
 
-          <section className="border-t border-border/60 px-5 py-6 ">
+          <section className="border-t border-border/60 px-5 py-6">
             <div className="mb-6">
               <h2 className="text-base font-semibold">{t("deckSettings")}</h2>
 

@@ -25,7 +25,15 @@ type RowButtonProps = BaseProps &
 type SettingsRowProps = RowLinkProps | RowButtonProps
 
 export function SettingsRow(props: SettingsRowProps) {
-  const { icon, label, value, showChevron = true, className, children, ...rest } = props
+  const {
+    icon,
+    label,
+    value,
+    showChevron = true,
+    className,
+    children,
+    ...rest
+  } = props
 
   const classes = cn(
     "flex min-h-14 w-full items-center gap-3 px-4 text-left transition-colors active:bg-muted disabled:opacity-60",

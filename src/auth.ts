@@ -6,6 +6,8 @@ import { authConfig } from "@/auth.config"
 import { verifyInitData } from "@/shared/server/telegram/verify-init-data"
 import { findOrCreateTelegramUser } from "@/entities/user/api/find-or-create-telegram-user"
 
+const isProd = process.env.NODE_ENV === "production"
+
 export const { handlers, auth, signIn, signOut } = NextAuth({
   ...authConfig,
   providers: [
@@ -21,12 +23,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   ],
   cookies: {
     sessionToken: {
-      name: process.env.NODE_ENV === "production" ? `__Secure-authjs.session-token` : `authjs.session-token`,
+      name: isProd ? `__Secure-authjs.session-token` : `authjs.session-token`,
       options: {
         httpOnly: true,
-        sameSite: "none",
+        sameSite: isProd ? "none" : "lax",
         path: "/",
-        secure: true,
+        secure: isProd,
       },
     },
   },

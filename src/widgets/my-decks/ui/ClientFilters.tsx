@@ -11,13 +11,7 @@ import {
   Input,
   Button,
 } from "@/shared/client/ui"
-import {
-  Check,
-  ChevronRight,
-  Search,
-  SlidersHorizontal,
-  X,
-} from "lucide-react"
+import { Check, ChevronRight, Search, SlidersHorizontal, X } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { cn } from "@/shared/client/lib/utils"
 
@@ -37,9 +31,7 @@ export function ClientFilters({
 
   const [, startTransition] = useTransition()
 
-  const [search, setSearch] = useState(
-    searchParams.get("query") ?? "",
-  )
+  const [search, setSearch] = useState(searchParams.get("query") ?? "")
   const [open, setOpen] = useState(false)
 
   const searchTimer = useRef<NodeJS.Timeout | null>(null)
@@ -51,8 +43,7 @@ export function ClientFilters({
     public: t("filters.public"),
   }
 
-  const activeFilterLabel =
-    filterLabels[currentFilter] ?? filterLabels.all
+  const activeFilterLabel = filterLabels[currentFilter] ?? filterLabels.all
 
   useEffect(() => {
     if (searchTimer.current) {
@@ -157,9 +148,7 @@ export function ClientFilters({
             <span className="flex min-w-0 items-center gap-2">
               <SlidersHorizontal className="h-4 w-4 shrink-0 text-muted-foreground" />
 
-              <span className="truncate">
-                {activeFilterLabel}
-              </span>
+              <span className="truncate">{activeFilterLabel}</span>
             </span>
 
             <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground" />
@@ -199,16 +188,12 @@ export function ClientFilters({
                   onClick={() => handleFilterChange(item.value)}
                   className={cn(
                     "flex min-h-12 w-full items-center justify-between rounded-xl px-4 text-left text-base transition-colors active:bg-muted",
-                    active
-                      ? "bg-muted font-medium"
-                      : "bg-transparent",
+                    active ? "bg-muted font-medium" : "bg-transparent"
                   )}
                 >
                   <span>{item.label}</span>
 
-                  {active && (
-                    <Check className="size-4 text-primary" />
-                  )}
+                  {active && <Check className="size-4 text-primary" />}
                 </button>
               )
             })}

@@ -15,7 +15,12 @@ export default async function EditDeckPage({ params }: Props) {
   if (!deck) notFound()
 
   const currentUser = await getCurrentUser()
-  if (currentUser?.id !== deck.userId) notFound() 
+  if (currentUser?.id !== deck.userId) notFound()
 
-  return <EditDeckView initialDeck={deck} cardsLimit={getCardsLimit(currentUser.isPremium)} />
+  return (
+    <EditDeckView
+      initialDeck={deck}
+      cardsLimit={getCardsLimit(currentUser.isPremium)}
+    />
+  )
 }

@@ -30,7 +30,9 @@ export function PremiumRow({ isPremium }: { isPremium: boolean }) {
       setPending(false)
       if (status === "paid") {
         toast.success(t("premiumActivated"))
-        ;[500, 2000, 5000].forEach((ms) => setTimeout(() => router.refresh(), ms))
+        ;[500, 2000, 5000].forEach((ms) =>
+          setTimeout(() => router.refresh(), ms)
+        )
       } else if (status === "failed") {
         toast.error(t("paymentFailed"))
       }

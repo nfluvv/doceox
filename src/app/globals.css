@@ -350,6 +350,11 @@ button {
 }
 
 @keyframes star-twinkle {
-  20%, 100% { opacity: 0.15; }
-  50% { opacity: 0.6; }
+  20%,
+  100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.6;
+  }
 }

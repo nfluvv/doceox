@@ -1,1 +1,1 @@
-export { SavedView } from "./ui/SavedView";
+export { SavedView } from "./ui/SavedView"

@@ -1,7 +1,7 @@
 import { getUserDecks } from "@/entities/deck/api/queries"
 import { getRecentStudiedDecks } from "@/entities/study-session/api/queries"
 
-import { getCurrentUser } from '@/entities/user/api/queries'
+import { getCurrentUser } from "@/entities/user/api/queries"
 
 import { Container, Loader } from "@/shared/client/ui"
 
@@ -20,11 +20,7 @@ interface DashboardProps {
 }
 
 export async function DashboardView({ searchParams }: DashboardProps) {
-  const {
-    query = "",
-    filter = "all",
-  } = await searchParams
-
+  const { query = "", filter = "all" } = await searchParams
 
   const [decks, recentStudied, user] = await Promise.all([
     getUserDecks(),
@@ -45,7 +41,7 @@ export async function DashboardView({ searchParams }: DashboardProps) {
   const currentDecksCount = decks?.length ?? 0
 
   return (
-    <main className="min-h-screen bg-background text-foreground pb-6">
+    <main className="min-h-screen bg-background pb-6 text-foreground">
       <Container className="py-4">
         <DashboardHeader />
 

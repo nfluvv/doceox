@@ -59,15 +59,23 @@ export function SaveDeckControl({
     })
   }
   return (
-    <div className="flex flex-col gap-3 w-full px-5">
-      <div role="radiogroup" className="grid grid-cols-2 rounded-full border border-border/60 bg-muted/40 p-0.5">
+    <div className="flex w-full flex-col gap-3 px-5">
+      <div
+        role="radiogroup"
+        className="grid grid-cols-2 rounded-full border border-border/60 bg-muted/40 p-0.5"
+      >
         <button
           type="button"
           role="radio"
           aria-checked={target === "PRIVATE"}
           disabled={isPending}
           onClick={() => setTarget("PRIVATE")}
-          className={cn("flex items-center justify-center gap-1.5 rounded-full py-1.5 text-xs font-medium transition-colors px-3 disabled:opacity-40", target === "PRIVATE" ? "bg-background text-foreground shadow-xs" : "text-muted-foreground")}
+          className={cn(
+            "flex items-center justify-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium transition-colors disabled:opacity-40",
+            target === "PRIVATE"
+              ? "bg-background text-foreground shadow-xs"
+              : "text-muted-foreground"
+          )}
         >
           <Lock className="size-3.5 shrink-0" />
 
@@ -80,7 +88,12 @@ export function SaveDeckControl({
           aria-checked={target === "PUBLIC"}
           disabled={isPending || !canPublish}
           onClick={() => setTarget("PUBLIC")}
-          className={cn("flex items-center justify-center gap-1.5 rounded-full py-1.5 text-xs font-medium transition-colors px-3 disabled:cursor-not-allowed disabled:opacity-40", target === "PUBLIC" ? "bg-background text-primary shadow-xs" : "text-muted-foreground")}
+          className={cn(
+            "flex items-center justify-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-40",
+            target === "PUBLIC"
+              ? "bg-background text-primary shadow-xs"
+              : "text-muted-foreground"
+          )}
         >
           <Globe className="size-3.5 shrink-0" />
 

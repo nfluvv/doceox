@@ -19,7 +19,9 @@ export const DashboardSidebar = async ({
         <div className="mt-5 h-1.5 overflow-hidden rounded-full bg-muted">
           <div
             className="h-full rounded-full bg-foreground transition-all"
-            style={{ width: `${Math.min((currentDecksCount / limit) * 100, 100)}%` }}
+            style={{
+              width: `${Math.min((currentDecksCount / limit) * 100, 100)}%`,
+            }}
           />
         </div>
 

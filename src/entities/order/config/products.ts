@@ -2,12 +2,14 @@ import type { Order, Prisma } from "@prisma/client"
 
 type Fulfill = (tx: Prisma.TransactionClient, order: Order) => Promise<void>
 
-const setPremium = (value: boolean): Fulfill => async (tx, order) => {
-  await tx.user.update({
-    where: { id: order.userId },
-    data: { isPremium: value },
-  })
-}
+const setPremium =
+  (value: boolean): Fulfill =>
+  async (tx, order) => {
+    await tx.user.update({
+      where: { id: order.userId },
+      data: { isPremium: value },
+    })
+  }
 
 export const PRODUCTS = {
   premium_lifetime: {

@@ -1,4 +1,4 @@
-import { getCurrentUser } from '@/entities/user/api/queries'
+import { getCurrentUser } from "@/entities/user/api/queries"
 
 import { Container } from "@/shared/client/ui"
 
@@ -15,16 +15,11 @@ interface DashboardProps {
 }
 
 export async function SavedView({ searchParams }: DashboardProps) {
-  const {
-    savedQuery = "",
-    savedPage = "1",
-  } = await searchParams
+  const { savedQuery = "", savedPage = "1" } = await searchParams
 
   const savedPageNum = Math.max(1, Number(savedPage) || 1)
 
-  const [user] = await Promise.all([
-    getCurrentUser(),
-  ])
+  const [user] = await Promise.all([getCurrentUser()])
 
   if (!user) notFound()
 

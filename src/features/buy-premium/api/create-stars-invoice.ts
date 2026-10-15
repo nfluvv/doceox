@@ -21,8 +21,8 @@ export async function createStarsInvoice(productId: ProductId) {
   })
   if (!user) return { success: false as const, error: "unauthorized" }
 
-
-  if (user.isPremium) return { success: false as const, error: "alreadyPremium" }
+  if (user.isPremium)
+    return { success: false as const, error: "alreadyPremium" }
 
   const order = await prisma.order.create({
     data: { userId: session.user.id, productId, stars: product.stars },
