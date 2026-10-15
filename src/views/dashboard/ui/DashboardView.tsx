@@ -9,7 +9,6 @@ import { DashboardHeader } from "@/widgets/dashboard-header"
 import { RecentStudiedDecks } from "@/widgets/recent-studied-decks"
 import { DashboardSidebar } from "@/widgets/dashboard-sidebar/ui/DashboardSidebar"
 import { MyDecks } from "@/widgets/my-decks"
-import { notFound } from "next/navigation"
 
 interface DashboardProps {
   searchParams: Promise<{
