@@ -11,7 +11,6 @@ export function CreateDeckButton() {
     className="
       fixed bottom-22 right-6 z-50
       flex items-center justify-center
-      bg-background shadow-lg
       transition-all duration-300 ease-out
       hover:border-foreground/25 hover:bg-muted/30 hover:shadow-xl
       focus-visible:outline-none focus-visible:ring-2
