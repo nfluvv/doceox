@@ -1,6 +1,6 @@
 "use client"
 
-import { Home, User, Sparkles, PlusCircle, Loader2, SearchIcon } from "lucide-react"
+import { Home, User, Sparkles, PlusCircle, Loader2 } from "lucide-react"
 import { Link, usePathname } from "@/shared/i18n/navigation"
 import { siteConfig } from "@/shared/client/config/site"
 import { cn } from "@/shared/client/lib/utils"

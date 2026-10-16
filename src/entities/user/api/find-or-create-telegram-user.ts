@@ -22,7 +22,10 @@ export async function findOrCreateTelegramUser(tg: TelegramUser) {
   try {
     const username = await generateUniqueUsername(tg.username ?? tg.first_name)
     return await prisma.user.create({
-      data: { telegramId, name, image, username },
+      data: {
+        telegramId, name, image, username,
+        locale: tg.language_code?.startsWith("en") ? "en" : "ru",
+      },
     })
   } catch {
     const created = await prisma.user.findUnique({ where: { telegramId } })

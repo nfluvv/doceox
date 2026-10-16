@@ -22,6 +22,10 @@ model User {
 
   isPremium Boolean  @default(false)
 
+  notifyStreak   Boolean   @default(true) 
+  lastNotifiedAt DateTime?
+  locale         String    @default("ru")
+
   @@index([name])
   @@map("users")
   orders Order[]
