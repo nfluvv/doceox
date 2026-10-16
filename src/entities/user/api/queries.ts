@@ -25,6 +25,9 @@ export const getCurrentUser = cache(async () => {
       role: true,
       createdAt: true,
       isPremium: true,
+      notifyStreak: true,
+      lastNotifiedAt: true,
+      locale: true
     },
   })
 })
