@@ -1,6 +1,7 @@
 import { SaveDeckButton } from "@/features/save-deck-to-library"
 import { EditDeckButton } from "@/features/edit-deck"
 import type { DeckWithAuthor } from "@/entities/deck/model/types"
+import { ShareDeckButton } from '@/features/share-deck'
 import Link from "next/link"
 
 type Props = {
@@ -46,11 +47,14 @@ export function DeckLandingHeader({ deck, isOwner, cardCount, t }: Props) {
           </div>
         </div>
 
-        {isOwner ? (
-          <EditDeckButton deckId={deck.id} />
-        ) : (
-          <SaveDeckButton deckId={deck.id} initialSaved={deck.isSaved} />
-        )}
+        <div className="flex gap-2">
+          {deck.status === "PUBLIC" && <ShareDeckButton deckId={deck.id} title={deck.title} />}
+          {isOwner ? (
+            <EditDeckButton deckId={deck.id} />
+          ) : (
+            <SaveDeckButton deckId={deck.id} initialSaved={deck.isSaved} />
+          )}
+        </div>
       </div>
     </section>
   )

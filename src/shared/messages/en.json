@@ -282,7 +282,10 @@
     "studyModes": "Study mode",
     "studyModesDescription": "Choose how you want to work with this deck.",
     "chooseStudyMode": "Choose a mode and start learning",
-    "actionsText": "Space — flip, ← → — navigate, S — speak"
+    "actionsText": "Space — flip, ← → — navigate, S — speak",
+    "shareText": "Check out the \"{title}\" deck in Telegram Mini App!",
+    "linkCopied": "Link copied to clipboard",
+    "shareAria": "Share deck"
   },
 
   "search": {

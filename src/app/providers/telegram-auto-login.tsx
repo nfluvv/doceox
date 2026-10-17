@@ -8,6 +8,19 @@ import { useRouter } from "@/shared/i18n/navigation"
 const safeNext = (v: string | null) =>
   v && v.startsWith("/") && !v.startsWith("//") ? v : null
 
+const HANDLED_KEY = "startParamHandled"
+
+function getStartTarget(): string | null {
+  if (sessionStorage.getItem(HANDLED_KEY)) return null
+
+  const p = window.Telegram?.WebApp?.initDataUnsafe?.start_param
+  const match = p ? /^deck_([A-Za-z0-9]{10,40})$/.exec(p) : null
+  if (!match) return null
+
+  sessionStorage.setItem(HANDLED_KEY, "1")
+  return `/decks/${match[1]}`
+}
+
 async function getInitData(): Promise<string | null> {
   const real = window.Telegram?.WebApp?.initData
   if (real) return real
@@ -42,10 +55,12 @@ export function TelegramAutoLogin() {
         return
       }
 
-      if (next) router.replace(next)
+      const target = next ?? getStartTarget()
+      if (target) router.replace(target)
       else router.refresh()
     })()
   }, [status, router, next])
 
   return null
 }
+
