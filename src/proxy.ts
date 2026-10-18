@@ -31,7 +31,6 @@ export default auth((req) => {
     isLoggedIn: !!req.auth?.user,
     role: req.auth?.user?.role as "USER" | "ADMIN" | undefined,
     pathname: normalizedPathname,
-    locale,
     origin,
   })
 
