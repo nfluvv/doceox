@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import { Crown } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { toast } from "react-hot-toast"
