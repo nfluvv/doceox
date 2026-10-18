@@ -41,7 +41,6 @@ export async function AdminPage({ searchParams }: AdminPageProps) {
           <AdminUsers
             initialQuery={q}
             initialPage={pageNum}
-            currentUserId={currentUser?.id}
           />
         </HydrationBoundary>
       </Container>
