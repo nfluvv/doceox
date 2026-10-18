@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-import { RoleSelect } from "@/features/update-user-role"
+import { PremiumToggle } from "@/features/toggle-premium"
 
 import {
   Avatar,
@@ -14,16 +14,14 @@ import type { AdminUsersResponse } from "../api/use-admin-users-query"
 
 type AdminUsersTableRowProps = {
   user: AdminUsersResponse["users"][number]
-  currentUserId?: string
-  onRoleChangeSuccess: () => void
+  onPremiumChangeSuccess: () => void
 }
 
 export function AdminUsersTableRow({
   user,
-  currentUserId,
-  onRoleChangeSuccess,
+  onPremiumChangeSuccess,
 }: AdminUsersTableRowProps) {
-  const label = user.name ?? user.username ?? user.telegramId
+  const label = user.name ?? user.username ?? String(user.telegramId)
   const initial = label.charAt(0).toUpperCase()
 
   return (
@@ -50,16 +48,19 @@ export function AdminUsersTableRow({
       </TableCell>
 
       <TableCell className="font-mono text-xs text-muted-foreground">
+        {user.username}
+      </TableCell>
+
+      <TableCell className="font-mono text-xs text-muted-foreground">
         {user.telegramId}
       </TableCell>
 
       <TableCell>
-        <RoleSelect
+        <PremiumToggle
           userId={user.id}
           userLabel={label}
-          currentRole={user.role}
-          disabled={user.id === currentUserId}
-          onSuccess={onRoleChangeSuccess}
+          isPremium={user.isPremium}
+          onSuccess={onPremiumChangeSuccess}
         />
       </TableCell>
     </TableRow>

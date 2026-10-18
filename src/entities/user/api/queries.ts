@@ -73,6 +73,7 @@ export const getAllUsers = async ({
         image: true,
         role: true,
         createdAt: true,
+        isPremium: true,
       },
       orderBy: { createdAt: "desc" },
       skip: (page - 1) * PAGE_SIZE,

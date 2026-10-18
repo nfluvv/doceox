@@ -139,20 +139,14 @@
     "title": "Choose Language"
   },
 
-  "roleSelect": {
-    "success": "Role updated",
-    "confirmTitle": "Grant administrator access?",
-    "confirmDescription": "The user \"{userLabel}\" will get full access to the admin panel, including managing other users' roles.",
-    "grantAccess": "Grant access"
-  },
-
   "adminUsers": {
     "title": "Users",
     "loadError": "Failed to load users.",
     "columnUser": "User",
     "columnEmail": "Email",
     "columnTelegramId": "Telegram ID",
-    "columnRole": "Role",
+    "columnUsername": "Username",
+    "columnPremium": "isPremium",
     "loading": "Loading...",
     "empty": "No users found",
     "total": "Total: {total}",
@@ -293,5 +287,14 @@
     "emptyQuery": "Enter a search query",
     "noResults": "No results found",
     "cards": "cards"
+  },
+
+  "premiumToggle": {
+    "label": "Premium for {userLabel}",
+    "granted": "Premium granted",
+    "revoked": "Premium revoked",
+    "confirmTitle": "Revoke premium?",
+    "confirmDescription": "{userLabel} will lose premium access.",
+    "revokeAccess": "Revoke"
   }
 }

@@ -17,13 +17,11 @@ import { AdminUsersToolbar } from "./AdminUsersToolbar"
 type AdminUsersProps = {
   initialQuery: string
   initialPage: number
-  currentUserId?: string
 }
 
 export function AdminUsers({
   initialQuery,
   initialPage,
-  currentUserId,
 }: AdminUsersProps) {
   const t = useTranslations("adminUsers")
   const queryClient = useQueryClient()
@@ -38,7 +36,7 @@ export function AdminUsers({
     setPage(1)
   }
 
-  const handleRoleChangeSuccess = () => {
+  const handlePremiumChangeSuccess = () => {
     void queryClient.invalidateQueries({
       queryKey: adminUsersQueryKey(query, page),
     })
@@ -59,8 +57,7 @@ export function AdminUsers({
       <AdminUsersTable
         users={data?.users ?? []}
         isPending={isPending}
-        currentUserId={currentUserId}
-        onRoleChangeSuccess={handleRoleChangeSuccess}
+        onPremiumChangeSuccess={handlePremiumChangeSuccess}
       />
 
       {data && (

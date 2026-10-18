@@ -43,9 +43,9 @@ export async function SavedDecksGrid({
         ))}
       </div>
 
-      {totalPages > 1 && (
+      {/* {totalPages > 1 && ( */}
         <SavedDecksPagination currentPage={savedPage} totalPages={totalPages} />
-      )}
+      {/* )} */}
     </div>
   )
 }

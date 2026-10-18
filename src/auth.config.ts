@@ -6,7 +6,6 @@ type CheckAuthorizationParams = {
   isLoggedIn: boolean
   role?: "USER" | "ADMIN"
   pathname: string
-  locale: string
   origin: string
 }
 
@@ -16,7 +15,6 @@ export function checkAuthorization({
   isLoggedIn,
   role,
   pathname,
-  locale,
   origin,
 }: CheckAuthorizationParams): true | Response {
   if (pathname.startsWith("/admin") && role !== "ADMIN") {

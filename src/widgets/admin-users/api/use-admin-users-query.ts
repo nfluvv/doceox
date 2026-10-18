@@ -7,7 +7,7 @@ export type AdminUsersResponse = {
     username: string | null
     telegramId: string
     image: string | null
-    role: "USER" | "ADMIN"
+    isPremium: boolean
     createdAt: string
   }>
   total: number

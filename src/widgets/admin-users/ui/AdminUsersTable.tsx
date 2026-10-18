@@ -16,15 +16,13 @@ import { AdminUsersTableRow } from "./AdminUsersTableRow"
 type AdminUsersTableProps = {
   users: AdminUsersResponse["users"]
   isPending: boolean
-  currentUserId?: string
-  onRoleChangeSuccess: () => void
+  onPremiumChangeSuccess: () => void
 }
 
 export function AdminUsersTable({
   users,
   isPending,
-  currentUserId,
-  onRoleChangeSuccess,
+  onPremiumChangeSuccess,
 }: AdminUsersTableProps) {
   const t = useTranslations("adminUsers")
 
@@ -33,8 +31,9 @@ export function AdminUsersTable({
       <TableHeader>
         <TableRow>
           <TableHead>{t("columnUser")}</TableHead>
+          <TableHead>{t("columnUsername")}</TableHead>
           <TableHead>{t("columnTelegramId")}</TableHead>
-          <TableHead>{t("columnRole")}</TableHead>
+          <TableHead>{t("columnPremium")}</TableHead>
         </TableRow>
       </TableHeader>
 
@@ -53,8 +52,7 @@ export function AdminUsersTable({
             <AdminUsersTableRow
               key={user.id}
               user={user}
-              currentUserId={currentUserId}
-              onRoleChangeSuccess={onRoleChangeSuccess}
+              onPremiumChangeSuccess={onPremiumChangeSuccess}
             />
           ))
         )}

@@ -13,21 +13,17 @@ import { createStarsInvoice } from "../api/create-stars-invoice"
 export function PremiumRow({ isPremium }: { isPremium: boolean }) {
   const t = useTranslations("profile")
   const router = useRouter()
-  const [pending, setPending] = useState(false)
 
   const handleClick = async () => {
     const tg = window.Telegram?.WebApp
     if (!tg) return toast.error(t("openInTelegram"))
 
-    setPending(true)
     const res = await createStarsInvoice("premium_lifetime")
     if (!res.success) {
-      setPending(false)
       return toast.error(res.error)
     }
 
     tg.openInvoice(res.url, (status) => {
-      setPending(false)
       if (status === "paid") {
         toast.success(t("premiumActivated"))
         ;[500, 2000, 5000].forEach((ms) =>
@@ -52,7 +48,6 @@ export function PremiumRow({ isPremium }: { isPremium: boolean }) {
       }
       showChevron={!isPremium}
       onClick={isPremium ? undefined : handleClick}
-      // disabled={pending || isPremium}
     />
   )
 }

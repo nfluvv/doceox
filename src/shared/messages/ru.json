@@ -156,20 +156,14 @@
     "home": "На главную"
   },
 
-  "roleSelect": {
-    "success": "Роль обновлена",
-    "confirmTitle": "Выдать права администратора?",
-    "confirmDescription": "Пользователь «{userLabel}» получит полный доступ к админ-панели, включая управление ролями других пользователей.",
-    "grantAccess": "Выдать права"
-  },
-
   "adminUsers": {
     "title": "Пользователи",
     "loadError": "Не удалось загрузить пользователей.",
     "columnUser": "Пользователь",
     "columnEmail": "Email",
     "columnTelegramId": "Telegram ID",
-    "columnRole": "Роль",
+    "columnUsername": "Username",
+    "columnPremium": "Премиум",
     "loading": "Загрузка...",
     "empty": "Пользователи не найдены",
     "total": "Всего: {total}",
@@ -290,5 +284,14 @@
     "emptyQuery": "Введите запрос для поиска",
     "noResults": "Ничего не найдено",
     "cards": "карточек"
+  },
+
+  "premiumToggle": {
+    "label": "Премиум для {userLabel}",
+    "granted": "Премиум выдан",
+    "revoked": "Премиум снят",
+    "confirmTitle": "Снять премиум?",
+    "confirmDescription": "У пользователя {userLabel} пропадёт премиум-доступ.",
+    "revokeAccess": "Снять"
   }
 }
