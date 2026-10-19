@@ -1,7 +1,7 @@
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query"
 import { getTranslations } from "next-intl/server"
 
-import { getAllUsers, getCurrentUser } from "@/entities/user/api/queries"
+import { getAllUsers } from "@/entities/user/api/queries"
 import { getQueryClient } from "@/shared/server/lib/get-query-client"
 import { AdminUsers } from "@/widgets/admin-users"
 import { adminUsersQueryKey } from "@/widgets/admin-users/api/use-admin-users-query"
