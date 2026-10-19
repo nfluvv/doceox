@@ -3,12 +3,12 @@ import { Layers } from "lucide-react"
 import { DeckCard } from "@/entities/deck"
 import { CloneDeckButton } from "@/features/clone-deck"
 import { Container } from "@/shared/client/ui"
-import type { PublicDeckWithSaveState } from "@/entities/deck"
+import type { DeckWithCount } from "@/entities/deck"
 import type { Profile } from "@/entities/user"
 
 interface UserDecksProps {
   profile: Profile
-  decks: PublicDeckWithSaveState[]
+  decks: DeckWithCount[]
 }
 
 export const UserDecks = async ({
