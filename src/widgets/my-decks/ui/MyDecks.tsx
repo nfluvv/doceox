@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server"
 import { ClientFilters } from "@/widgets/my-decks/ui/ClientFilters"
 import { DeleteDeckButton } from "@/features/delete-deck/ui/delete-deck-button"
 import { EditDeckButton } from "@/features/edit-deck/ui/edit-deck-button"
-import { DeckCard } from "@/entities/deck/ui/DeckCard"
+import { DeckCard } from "@/entities/deck"
 import { StartDeckCard } from "@/features/create-deck"
 import type { DeckWithCount } from "@/entities/deck"
 

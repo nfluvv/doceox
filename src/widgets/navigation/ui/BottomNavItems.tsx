@@ -1,6 +1,6 @@
 "use client"
 
-import { Home, User, Sparkles, PlusCircle, Loader2 } from "lucide-react"
+import { Home, User, PlusCircle, Loader2 } from "lucide-react"
 import { Link, usePathname } from "@/shared/i18n/navigation"
 import { siteConfig } from "@/shared/client/config/site"
 import { cn } from "@/shared/client/lib/utils"
@@ -23,12 +23,6 @@ export function BottomNavItems({ isAuthed }: { isAuthed: boolean }) {
       href: siteConfig.routes.home,
       label: t("home"),
       icon: Home,
-    },
-    {
-      type: "link" as const,
-      href: "/saved",
-      label: t("saved"),
-      icon: Sparkles,
     },
     {
       type: "action" as const,

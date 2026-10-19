@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation"
-import { getCurrentUser, getUserByUsername } from "@/entities/user/api/queries"
+import { getUserByUsername } from "@/entities/user/api/queries"
 import { getPublicUserDecks } from "@/entities/deck/api/queries"
 import { UserDecks } from "@/views/user-decks"
 import { AuthGate } from "@/features/telegram-auth"
@@ -16,12 +16,11 @@ export default async function UserProfilePage({
 
   if (!profile) return <AuthGate />
 
-  const [currentUser, decks] = await Promise.all([
-    getCurrentUser(),
+  const [decks] = await Promise.all([
     getPublicUserDecks(profile.id),
   ])
 
   if (!decks) notFound()
 
-  return <UserDecks profile={profile} decks={decks} currentUser={currentUser} />
+  return <UserDecks profile={profile} decks={decks} />
 }

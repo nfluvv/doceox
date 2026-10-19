@@ -1,27 +1,22 @@
 import { getTranslations } from "next-intl/server"
 import { Layers } from "lucide-react"
 import { DeckCard } from "@/entities/deck"
-import { SaveDeckButton } from "@/features/save-deck-to-library"
+import { CloneDeckButton } from "@/features/clone-deck"
 import { Container } from "@/shared/client/ui"
 import type { PublicDeckWithSaveState } from "@/entities/deck"
-import type { User, Profile } from "@/entities/user"
+import type { Profile } from "@/entities/user"
 
 interface UserDecksProps {
   profile: Profile
   decks: PublicDeckWithSaveState[]
-  currentUser: User | null
 }
 
 export const UserDecks = async ({
   profile,
   decks,
-  currentUser,
 }: UserDecksProps) => {
   const t = await getTranslations("profileDecks")
   const profileName = profile.name?.trim() || profile.username || "User"
-  const isOwnerView = profile.id === currentUser?.id
-
-  const canSaveDecks = Boolean(currentUser) && !isOwnerView
 
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -68,14 +63,7 @@ export const UserDecks = async ({
                   key={deck.id}
                   deck={deck}
                   variant="public"
-                  actions={
-                    canSaveDecks ? (
-                      <SaveDeckButton
-                        deckId={deck.id}
-                        initialSaved={deck.isSaved}
-                      />
-                    ) : undefined
-                  }
+                  actions={<CloneDeckButton deckId={deck.id}/>}
                 />
               ))}
             </div>

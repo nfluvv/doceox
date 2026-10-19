@@ -293,5 +293,14 @@
     "confirmTitle": "Снять премиум?",
     "confirmDescription": "У пользователя {userLabel} пропадёт премиум-доступ.",
     "revokeAccess": "Снять"
+  },
+
+  "cloneButton": {
+    "addSuccess": "Колода скопирована",
+    "errors": {
+      "deckNotFound": "Колода не найдена",
+      "cardsLimitReached": "Вы достигли лимита карточек",
+      "decksLimitReached": "Вы достигли лимита колод"
+    }
   }
 }

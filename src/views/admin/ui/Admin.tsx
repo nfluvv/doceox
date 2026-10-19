@@ -21,7 +21,6 @@ export async function AdminPage({ searchParams }: AdminPageProps) {
 
   const t = await getTranslations("adminUsers")
   const queryClient = getQueryClient()
-  const currentUser = await getCurrentUser()
 
   await queryClient.prefetchQuery({
     queryKey: adminUsersQueryKey(q, pageNum),

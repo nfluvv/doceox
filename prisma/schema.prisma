@@ -31,19 +31,6 @@ model User {
   orders Order[]
   decks Deck[]
   cardProgresses CardProgress[]
-  savedDecks SavedDeck[]
-}
-
-model RoleChangeLog {
-  id             String   @id @default(cuid())
-  targetId       String
-  targetUsername String?
-  changedById    String
-  fromRole       Role
-  toRole         Role
-  createdAt      DateTime @default(now())
-
-  @@map("role_change_logs")
 }
 
 model RateLimitAttempt {
@@ -72,7 +59,6 @@ model Deck {
 
   @@index([userId, status])
   @@map("decks")
-  savedDecks SavedDeck[]
 }
 
 model Card {
@@ -125,27 +111,6 @@ model CardProgress {
   @@map("card_progress")
 }
 
-model SavedDeck {
-  id        String   @id @default(cuid())
-  userId    String
-  deckId    String
-  savedAt   DateTime @default(now())
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  deck Deck @relation(fields: [deckId], references: [id], onDelete: Cascade)
-
-  @@unique([userId, deckId])
-  @@index([userId, savedAt])
-  @@map("saved_decks")
-}
-
-
-enum OrderStatus {
-  PENDING
-  PAID
-  REFUNDED
-}
-
 model Order {
   id        String      @id @default(cuid())
   userId    String
@@ -162,15 +127,19 @@ model Order {
   @@map("orders")
 }
 
-
 enum Role {
   USER
   ADMIN
 }
 
-
 enum DeckStatus {
   DRAFT
   PRIVATE
   PUBLIC
+}
+
+enum OrderStatus {
+  PENDING
+  PAID
+  REFUNDED
 }

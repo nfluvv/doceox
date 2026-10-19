@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl"
 import { Layers } from "lucide-react"
 
 import { AddCardForm } from "@/features/create-card"
-import { SaveDeckControl } from "@/features/save-deck"
+import { SaveDeckControl } from "@/features/save-deck-changes"
 import { Input, Label, Container } from "@/shared/client/ui"
 import { DeckCardsList } from "@/widgets/deck-cards-list"
 

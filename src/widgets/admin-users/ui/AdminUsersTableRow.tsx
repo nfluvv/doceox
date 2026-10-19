@@ -36,7 +36,7 @@ export function AdminUsersTableRow({
 
           {user.username ? (
             <Link
-              href={`/u/${user.username}`}
+              href={`/u/${user.username}/decks`}
               className="font-medium hover:underline"
             >
               {user.name ?? user.username}

@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Doceox",
-  description: "Next.js FSD Template",
+  description: "Quizlet alternative",
   routes: {
     home: "/",
     login: "/login",

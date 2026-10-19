@@ -296,5 +296,14 @@
     "confirmTitle": "Revoke premium?",
     "confirmDescription": "{userLabel} will lose premium access.",
     "revokeAccess": "Revoke"
+  },
+
+  "cloneButton": {
+    "addSuccess": "Deck copied",
+    "errors": {
+      "deckNotFound": "Deck not found",
+      "cardsLimitReached": "You have reached your card limit",
+      "decksLimitReached": "You have reached your deck limit"
+    }
   }
 }
