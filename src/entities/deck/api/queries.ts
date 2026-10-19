@@ -50,8 +50,7 @@ export const getDeckSummaryById = cache(async (deckId: string) => {
 
   return {
     ...rest,
-    author: user,
-    isSaved: (savedDecks?.length ?? 0) > 0,
+    author: user
   }
 })
 
@@ -124,7 +123,6 @@ export const getPublicUserDecks = cache(async (userId: string) => {
   })
 
   return decks.map(({ savedDecks, ...deck }) => ({
-    ...deck,
-    isSaved: savedDecks?.length > 0,
+    ...deck
   }))
 })
