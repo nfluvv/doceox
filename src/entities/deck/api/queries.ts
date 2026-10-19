@@ -28,14 +28,6 @@ export const getDeckSummaryById = cache(async (deckId: string) => {
     include: {
       _count: { select: { cards: true } },
       user: authorSelect,
-      ...(viewerId
-        ? {
-            savedDecks: {
-              where: { userId: viewerId },
-              select: { id: true },
-            },
-          }
-        : {}),
     },
   })
 
@@ -44,9 +36,7 @@ export const getDeckSummaryById = cache(async (deckId: string) => {
   const isOwner = viewerId === deck.userId
   if (!isOwner && deck.status !== "PUBLIC") return null
 
-  const { savedDecks, user, ...rest } = deck as typeof deck & {
-    savedDecks?: { id: string }[]
-  }
+  const { user, ...rest } = deck as typeof deck
 
   return {
     ...rest,
@@ -90,7 +80,6 @@ export const getOwnedDeckById = cache(async (deckId: string) => {
 
 export const getPublicUserDecks = cache(async (userId: string) => {
   const session = await auth()
-  const viewerId = session?.user?.id
   if (!session?.user?.id) return null
 
   const decks = await prisma.deck.findMany({
@@ -104,25 +93,11 @@ export const getPublicUserDecks = cache(async (userId: string) => {
           cards: true,
         },
       },
-      ...(viewerId
-        ? {
-            savedDecks: {
-              where: {
-                userId: viewerId,
-              },
-              select: {
-                id: true,
-              },
-            },
-          }
-        : {}),
     },
     orderBy: {
       publishedAt: "desc",
     },
   })
 
-  return decks.map(({ savedDecks, ...deck }) => ({
-    ...deck
-  }))
+  return decks
 })

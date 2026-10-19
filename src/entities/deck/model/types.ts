@@ -11,11 +11,7 @@ export type DeckWithCount = Deck & {
   }
 }
 
-export type PublicDeckWithSaveState = DeckWithCount & {
-  isSaved: boolean
-}
-
-export type DeckWithAuthor = PublicDeckWithSaveState & {
+export type DeckWithAuthor = DeckWithCount & {
   author: DeckAuthor
 }
 
